@@ -41,8 +41,7 @@ ax = fig.add_subplot(1, 1, 1)
 
 
 # Add labels
-plt.title('EAR over Time')
-plt.xlabel('Time')
+plt.xlabel('Frame Number')
 plt.ylabel('EAR')
 
 # This function is called periodically from FuncAnimation
@@ -184,7 +183,7 @@ plt.plot( 'x', 'y1', data=EARs, marker='o', markerfacecolor='blue', markersize=1
 plt.plot( 'x', 'y2', data=blink_vals, marker='', color='olive', linewidth=2, linestyle='dashed', label="toto")
 plt.legend()
 '''
-plt.pause(1000000)
+plt.pause(15)
 # do a bit of cleanup
 cv2.destroyAllWindows()
 vs.stop()
