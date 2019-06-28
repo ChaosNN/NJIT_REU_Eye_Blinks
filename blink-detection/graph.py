@@ -25,11 +25,17 @@ def ground_data(gy1):
     gy = gy1
 '''
 
+tag_file_name = 'person2.tag'
+df = pd.read_csv(tag_file_name,skiprows = 19, sep=':',header=None,skipinitialspace=True)
+
+frame_nums = df.iloc[:,0]
+blink_vals = (df.iloc[:,1]).replace(-1,0)
+blink_vals = (blink_vals).mask(blink_vals > 0, 0.3)
 
 #df = pd.DataFrame({'x': range(1,11), 'foo': np.random.randn(10), 'bar':
     #np.random.randn(10)+range(1,11), 'world': np.random.randn(10)+range(11,21) })
 
-def show(x, y, gy=None):
+def show(x, y, gy=blink_vals):
     # data frame storing the blink information and ground truth
     df = pd.DataFrame({'x': x, "EAR": y, 'Ground Truth': gy})
 
