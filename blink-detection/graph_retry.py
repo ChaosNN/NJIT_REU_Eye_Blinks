@@ -178,10 +178,12 @@ while True:
         break
 
 
-#plt.plot(EARs)
+plt.plot(EARs)
+'''
 plt.plot( 'x', 'y1', data=EARs, marker='o', markerfacecolor='blue', markersize=12, color='skyblue', linewidth=4)
 plt.plot( 'x', 'y2', data=blink_vals, marker='', color='olive', linewidth=2, linestyle='dashed', label="toto")
 plt.legend()
+'''
 plt.pause(1000000)
 # do a bit of cleanup
 cv2.destroyAllWindows()
