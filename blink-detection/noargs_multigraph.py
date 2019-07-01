@@ -26,7 +26,6 @@ import pandas as pd
 EYE_AR_THRESH = 0.3
 EYE_AR_CONSEC_FRAMES = 3
 
-
 VIDE0_FILENAME = '000001M_FBN.mp4'
 TAG_FILENAME = '000001M_FBN.tag'
 SHAPE_PREDICTOR_FILENAME = "shape_predictor_68_face_landmarks.dat"
@@ -219,12 +218,38 @@ def graph_EAR_GT(EARs, blink_vals):
     #plt.legend()
     plt.pause(15)
     
+def IOU_eval():
+    #intersect over union of ground truth vs prediction blink frames evaluation method
+    # considered in A. Fogelton, W. Benesova's Computer Vision and Image Understanding (2016)
+    iou_threshold = 0.2
+    TP_Counter = 0
+    FP_Counter = 0
+    FN_Counter = 0
+    blinkpairs = []
+    for blink in blinkpairs:
+        GT_start_frame =
+        GT_end_frame = 
+        pred_start_frame =
+        pred_end_frame = 
+        # find the intersect and union of the groundtruth and prediction blink frames
+        GT_pred_union = max(GT_end_frame, pred_end_frame) - min(GT_start_frame, pred_start_frame)
+        GT_pred_intersect = min(GT_end_frame, pred_end_frame) - max(GT_start_frame, pred_start_frame)
+        iou = GT_pred_intersect/GT_pred_union
+        
+        if iou > iou_threshold:
+            TP_Counter += 1
+        else:
+            FP_Counter += 1
+            FN_Counter += 1
+            
+            
+    
 def main(): 
     gt_blinks = get_GT_blinks()
     (detector, predictor, lStart,lEnd, rStart, rEnd) = init_detector_predictor()
     (vs, fileStream) = start_videostream()
-    #EARs = scan_and_display_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
-    EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
+    EARs = scan_and_display_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
+    #EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
     graph_EAR_GT(EARs, gt_blinks)
     # do a bit of cleanup
     cv2.destroyAllWindows()
