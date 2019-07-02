@@ -20,15 +20,15 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import os
 
+'''
+GLOBAL VARS
+'''
+
 # define two constants, one for the eye aspect ratio to indicate
 # blink and then a second constant for the number of consecutive
 # frames the eye must be below the threshold
 EYE_AR_THRESH = 0.3
-EYE_AR_CONSEC_FRAMES = 3
-
-VIDE0_FILENAME = '' #'000001M_FBN.mp4'
-TAG_FILENAME = '000001M_FBN.tag'
-# What is this file doing? Do we need this for every eye blink detection algorithm?
+EYE_AR_CONSEC_FRAMES = 3    
 SHAPE_PREDICTOR_FILENAME = "shape_predictor_68_face_landmarks.dat"
 
 df_videodata = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'path'])
@@ -50,7 +50,7 @@ def read_data():
 
 
 def get_VIDEO_FILENAME(i):
-    read_data()
+    #read_data()
     return df_videodata.at[i, 'video_file']
 
 
@@ -58,11 +58,11 @@ def get_VIDEO_FILENAME(i):
 def get_TAG_FILENAME(i):
     return df_videodata.at[i, 'dat_file']
 
-def get_GT_blinks():
+def get_GT_blinks(tag_filename):
     # the first and second columns store the frame # and the blink value
     # -1 = no blink, all other numbers tell which blink you're on (e.g. 1,2,3,...)
-    df = pd.read_csv(TAG_FILENAME, skiprows=19, sep=':', header=None, skipinitialspace=True)
-    frame_nums = df.iloc[:, 0]
+    df = pd.read_csv(tag_filename, skiprows=19, sep=':', header=None, skipinitialspace=True)
+    # = df.iloc[:, 0]
     blink_vals = (df.iloc[:, 1]).replace(-1, 0)
     blink_vals = (blink_vals).mask(blink_vals > 0, 0.3)
     return blink_vals
@@ -93,10 +93,10 @@ def init_detector_predictor():
     return (detector, predictor, lStart, lEnd, rStart, rEnd)
 
 
-def start_videostream():
+def start_videostream(video_filename):
     # start the video stream thread
     print("[INFO] starting video stream thread...")
-    vs = FileVideoStream(VIDE0_FILENAME).start()
+    vs = FileVideoStream(video_filename).start()
     fileStream = True
     time.sleep(1.0)
     return (vs, fileStream)
@@ -230,7 +230,7 @@ def scan_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd):
     return EARs
 
 
-def graph_EAR_GT(EARs, blink_vals):
+def graph_EAR_GT(EARs, blink_vals, video_filename):
     # Add labels
     plt.xlabel('Frame Number')
     plt.ylabel('EAR')
@@ -238,9 +238,13 @@ def graph_EAR_GT(EARs, blink_vals):
     fig1 = plt.figure()
     plt.plot(EARs, 'b')
     plt.show()
+    # save graphs
+    plt.savefig(video_filename + 'GT.png', bbox_inches='tight')
     fig2 = plt.figure()
     plt.plot(blink_vals, 'r')
     plt.show()
+    plt.savefig(video_filename + 'BV.png', bbox_inches='tight')
+
     # plt.plot( 'x', 'y1', data=EARs, marker='o', markerfacecolor='blue', markersize=12, color='skyblue', linewidth=4)
     # plt.plot( 'x', 'y2', data=blink_vals, marker='', color='olive', linewidth=2, linestyle='dashed', label="toto")
     # plt.legend()
@@ -274,15 +278,21 @@ def IOU_eval():
 
 
 def main():
-    gt_blinks = get_GT_blinks()
-    (detector, predictor, lStart, lEnd, rStart, rEnd) = init_detector_predictor()
-    (vs, fileStream) = start_videostream()
-    EARs = scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd)
-    # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
-    graph_EAR_GT(EARs, gt_blinks)
-    # do a bit of cleanup
-    cv2.destroyAllWindows()
-    vs.stop()
+    
+    read_data()
+    num_rows = df_videodata.shape[0]
+    for i in range(num_rows):
+        video_filename = get_VIDEO_FILENAME(i)
+        tag_filename = get_TAG_FILENAME(i)
+        gt_blinks = get_GT_blinks(tag_filename)
+        (detector, predictor, lStart, lEnd, rStart, rEnd) = init_detector_predictor()
+        (vs, fileStream) = start_videostream(video_filename)
+        EARs = scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd)
+        # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
+        graph_EAR_GT(EARs, gt_blinks, video_filename)        
+        # do a bit of cleanup
+        cv2.destroyAllWindows()
+        vs.stop()
 
 
 
