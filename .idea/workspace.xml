@@ -27,16 +27,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blink-detection/noargs_multigraph.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
+            <state relative-caret-position="4182">
               <caret line="305" selection-start-line="305" selection-end-line="305" />
               <folding>
-                <element signature="e#1672#2073#0" />
-                <element signature="e#2107#2507#0" />
-                <element signature="e#2545#3098#0" />
-                <element signature="e#3130#3332#0" />
-                <element signature="e#3432#6654#0" />
                 <element signature="e#6742#8956#0" />
-                <element signature="e#9520#10420#1" />
               </folding>
             </state>
           </provider>
@@ -45,7 +39,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blink-detection/read_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
+            <state relative-caret-position="782">
               <caret line="47" column="23" lean-forward="true" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -112,38 +106,17 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="width" value="978" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="NJIT_REU_Eye_Blinks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NJIT_REU_Eye_Blinks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NJIT_REU_Eye_Blinks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NJIT_REU_Eye_Blinks" type="462c0819:PsiDirectoryNode" />
-              <item name="blink-detection" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NJIT_REU_Eye_Blinks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NJIT_REU_Eye_Blinks" type="462c0819:PsiDirectoryNode" />
-              <item name="blink-detection" type="462c0819:PsiDirectoryNode" />
-              <item name="data_sets" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -274,9 +247,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22252011" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22520107" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -329,6 +301,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/blink-detection/read_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="47" column="23" lean-forward="true" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/blink-detection/graph.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -346,28 +328,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/read_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="47" column="23" lean-forward="true" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blink-detection/noargs_multigraph.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
+        <state relative-caret-position="4182">
           <caret line="305" selection-start-line="305" selection-end-line="305" />
           <folding>
-            <element signature="e#1672#2073#0" />
-            <element signature="e#2107#2507#0" />
-            <element signature="e#2545#3098#0" />
-            <element signature="e#3130#3332#0" />
-            <element signature="e#3432#6654#0" />
             <element signature="e#6742#8956#0" />
-            <element signature="e#9520#10420#1" />
           </folding>
         </state>
       </provider>
