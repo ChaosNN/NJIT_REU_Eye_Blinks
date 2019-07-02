@@ -31,7 +31,7 @@ TAG_FILENAME = '000001M_FBN.tag'
 # What is this file doing? Do we need this for every eye blink detection algorithm?
 SHAPE_PREDICTOR_FILENAME = "shape_predictor_68_face_landmarks.dat"
 
-df_videodata = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'path'])
+df_videodata = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'path', 'file_name'])
 
 
 # gets the information about the file paths of the selected dataset
@@ -41,7 +41,11 @@ def read_data(data_set):
         if not filenames:
             print("empty")
         if filenames:
+            print("path")
+            print(dirpath)
             filenames.append(dirpath)
+            file_name = filenames[0][:-3] + 'png'
+            filenames.append(file_name)
             df_videodata.loc[len(df_videodata)] = filenames
     return df_videodata
 
