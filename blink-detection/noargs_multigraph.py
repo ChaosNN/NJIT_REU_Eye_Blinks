@@ -35,18 +35,15 @@ df_videodata = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'pat
 
 
 # gets the information about the file paths of the selected dataset
-def read_data():
-    data_set = 'data_sets\zju'
-    mypath = os.path.join(os.getcwd(), data_set)
+def read_data(data_set):
+    mypath = os.path.join(os.getcwd(), 'data_sets\\', data_set)
     for (dirpath, dirnames, filenames) in os.walk(mypath):
         if not filenames:
             print("empty")
         if filenames:
             filenames.append(dirpath)
             df_videodata.loc[len(df_videodata)] = filenames
-
-    #print(df_videodata.shape[0])
-    print(mypath)
+    return df_videodata
 
 
 def get_VIDEO_FILENAME(i):
@@ -57,6 +54,7 @@ def get_VIDEO_FILENAME(i):
 # returns the tag data file
 def get_TAG_FILENAME(i):
     return df_videodata.at[i, 'dat_file']
+
 
 def get_GT_blinks():
     # the first and second columns store the frame # and the blink value
@@ -279,6 +277,8 @@ def IOU_eval():
 
 
 def main():
+
+
     gt_blinks = get_GT_blinks()
     (detector, predictor, lStart, lEnd, rStart, rEnd) = init_detector_predictor()
     (vs, fileStream) = start_videostream()
