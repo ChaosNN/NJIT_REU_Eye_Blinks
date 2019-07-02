@@ -31,7 +31,7 @@ EYE_AR_THRESH = 0.3
 EYE_AR_CONSEC_FRAMES = 3    
 SHAPE_PREDICTOR_FILENAME = "shape_predictor_68_face_landmarks.dat"
 
-df_videodata = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'path', 'file_name'])
+df_videodata = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'path', 'png_file'])
 
 
 # gets the information about the file paths of the selected dataset
@@ -51,13 +51,16 @@ def read_data(data_set):
 
 
 def get_VIDEO_FILENAME(i):
-    #read_data()
     return df_videodata.at[i, 'video_file']
 
-
-# returns the tag data file
 def get_TAG_FILENAME(i):
     return df_videodata.at[i, 'dat_file']
+
+def get_PNG_FILENAME(i):
+    return df_videodata.at[i, 'png_file']
+
+def get_PATH(i):
+    return df_videodata.at[i, 'path']
 
 def get_GT_blinks(tag_filename):
     # the first and second columns store the frame # and the blink value
@@ -65,7 +68,7 @@ def get_GT_blinks(tag_filename):
     df = pd.read_csv(tag_filename, skiprows=19, sep=':', header=None, skipinitialspace=True)
     # = df.iloc[:, 0]
     blink_vals = (df.iloc[:, 1]).replace(-1, 0)
-    blink_vals = (blink_vals).mask(blink_vals > 0, 0.3)
+    blink_vals = (blink_vals).mask(blink_vals > 0, 0.35)
     return blink_vals
 
 
@@ -230,12 +233,12 @@ def scan_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd):
                 COUNTER = 0
     return EARs
 
-def graph_EAR_GT(EARs, blink_vals, video_filename):
+def graph_EAR_GT(EARs, blink_vals, path, png_filename):
     plt.xlabel('Frame Number')
     plt.ylabel('EAR')
     plt.plot(EARs, 'b')
     plt.plot(blink_vals, 'r')
-    plt.savefig(video_filename[0:-4] + '.png', bbox_inches='tight')
+    plt.savefig(os.path.join(path, png_filename), bbox_inches='tight')
     plt.close()
     
 
@@ -296,37 +299,39 @@ def IOU_eval():
 
 
 def main():
-    '''
+    
     read_data('zju')
     num_rows = df_videodata.shape[0]
     for i in range(num_rows):
         video_filename = get_VIDEO_FILENAME(i)
         tag_filename = get_TAG_FILENAME(i)
+        png_filename = get_PNG_FILENAME(i)
+        path = get_PATH(i)
         gt_blinks = get_GT_blinks(tag_filename)
         (detector, predictor, lStart, lEnd, rStart, rEnd) = init_detector_predictor()
         (vs, fileStream) = start_videostream(video_filename)
         EARs = scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd)
         # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
-        graph_EAR_GT(EARs, gt_blinks, video_filename)        
+        graph_EAR_GT(EARs, gt_blinks, path, png_filename)        
         # do a bit of cleanup
         cv2.destroyAllWindows()
         vs.stop()
     '''
-    video_filename = '000001M_FBN.mp4'
+    video_filename = '000001M_FBN.avi'
     tag_filename = '000001M_FBN.tag'
-
+    png_filename = '000001M_FBN.png'
     gt_blinks = get_GT_blinks(tag_filename)
     (detector, predictor, lStart, lEnd, rStart, rEnd) = init_detector_predictor()
     (vs, fileStream) = start_videostream(video_filename)
     EARs = scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd)
     # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
-    graph_EAR_GT(EARs, gt_blinks, video_filename)   
+    graph_EAR_GT(EARs, gt_blinks, png_filename)   
     print("finished graphing")     
     # do a bit of cleanup
     cv2.destroyAllWindows()
     vs.stop()
     print("post cleanup")
-
+    '''
 
 if __name__ == '__main__':
     main()
