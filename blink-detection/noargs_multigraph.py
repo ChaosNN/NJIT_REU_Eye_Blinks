@@ -241,22 +241,6 @@ def graph_EAR_GT(EARs, blink_vals, path, png_filename):
     plt.savefig(os.path.join(path, png_filename), bbox_inches='tight')
     plt.close()
     
-
-'''
-# This version graphs the ground truth and the predictions on separate graphs
-def graph_EAR_GT(EARs, blink_vals, video_filename):
-    plt.xlabel('Frame Number')
-    plt.ylabel('EAR')
-    fig1 = plt.figure()
-    plt.plot(EARs, 'b')
-    fig1.savefig(video_filename[0:-4] + 'GT.png', bbox_inches='tight')
-    plt.close(fig1)
-    fig2 = plt.figure()
-    plt.plot(blink_vals, 'r')
-    fig2.savefig(video_filename[0:-4] + 'BV.png', bbox_inches='tight')
-    plt.close(fig2)
-    
-'''    
 '''
 def IOU_eval():
     # intersect over union of ground truth vs prediction blink frames evaluation method
