@@ -237,21 +237,13 @@ def scan_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd):
     return EARs
 
 
-def graph_EAR_GT(EARs, blink_vals):
-    # Add labels
+def graph_EAR_GT(EARs, blink_vals, video_filename):
     plt.xlabel('Frame Number')
     plt.ylabel('EAR')
-    # frames = max(EARs.count, blink_vals.count)
-    fig1 = plt.figure()
     plt.plot(EARs, 'b')
-    plt.show()
-    fig2 = plt.figure()
     plt.plot(blink_vals, 'r')
-    plt.show()
-    # plt.plot( 'x', 'y1', data=EARs, marker='o', markerfacecolor='blue', markersize=12, color='skyblue', linewidth=4)
-    # plt.plot( 'x', 'y2', data=blink_vals, marker='', color='olive', linewidth=2, linestyle='dashed', label="toto")
-    # plt.legend()
-    plt.pause(15)
+    plt.savefig(video_filename[0:-4] + '.png', bbox_inches='tight')
+    plt.close()
 
 '''
 def IOU_eval():
@@ -281,17 +273,38 @@ def IOU_eval():
 
 
 def main():
+    '''
+    read_data('zju')
+    num_rows = df_videodata.shape[0]
+    for i in range(num_rows):
+        video_filename = get_VIDEO_FILENAME(i)
+        tag_filename = get_TAG_FILENAME(i)
+        gt_blinks = get_GT_blinks(tag_filename)
+        (detector, predictor, lStart, lEnd, rStart, rEnd) = init_detector_predictor()
+        (vs, fileStream) = start_videostream(video_filename)
+        EARs = scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd)
+        # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
+        graph_EAR_GT(EARs, gt_blinks, video_filename)
+        # do a bit of cleanup
+        cv2.destroyAllWindows()
+        vs.stop()
+    '''
+    video_filename = '000001M_FBN.mp4'
+    tag_filename = '000001M_FBN.tag'
 
-
-    gt_blinks = get_GT_blinks()
+    gt_blinks = get_GT_blinks(tag_filename)
     (detector, predictor, lStart, lEnd, rStart, rEnd) = init_detector_predictor()
-    (vs, fileStream) = start_videostream()
+    (vs, fileStream) = start_videostream(video_filename)
     EARs = scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd)
     # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
-    graph_EAR_GT(EARs, gt_blinks)
+    graph_EAR_GT(EARs, gt_blinks, video_filename)
+    print("finished graphing")
     # do a bit of cleanup
     cv2.destroyAllWindows()
     vs.stop()
+    print("post cleanup")
+
+
 
 
 
