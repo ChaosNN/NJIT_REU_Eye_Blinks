@@ -20,15 +20,15 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import os
 
+'''
+GLOBAL VARS
+'''
+
 # define two constants, one for the eye aspect ratio to indicate
 # blink and then a second constant for the number of consecutive
 # frames the eye must be below the threshold
 EYE_AR_THRESH = 0.3
-EYE_AR_CONSEC_FRAMES = 3
-
-VIDE0_FILENAME = '' #'000001M_FBN.mp4'
-TAG_FILENAME = '000001M_FBN.tag'
-# What is this file doing? Do we need this for every eye blink detection algorithm?
+EYE_AR_CONSEC_FRAMES = 3    
 SHAPE_PREDICTOR_FILENAME = "shape_predictor_68_face_landmarks.dat"
 
 df_videodata = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'path', 'file_name'])
@@ -51,7 +51,7 @@ def read_data(data_set):
 
 
 def get_VIDEO_FILENAME(i):
-    read_data()
+    #read_data()
     return df_videodata.at[i, 'video_file']
 
 
@@ -59,12 +59,11 @@ def get_VIDEO_FILENAME(i):
 def get_TAG_FILENAME(i):
     return df_videodata.at[i, 'dat_file']
 
-
-def get_GT_blinks():
+def get_GT_blinks(tag_filename):
     # the first and second columns store the frame # and the blink value
     # -1 = no blink, all other numbers tell which blink you're on (e.g. 1,2,3,...)
-    df = pd.read_csv(TAG_FILENAME, skiprows=19, sep=':', header=None, skipinitialspace=True)
-    frame_nums = df.iloc[:, 0]
+    df = pd.read_csv(tag_filename, skiprows=19, sep=':', header=None, skipinitialspace=True)
+    # = df.iloc[:, 0]
     blink_vals = (df.iloc[:, 1]).replace(-1, 0)
     blink_vals = (blink_vals).mask(blink_vals > 0, 0.3)
     return blink_vals
@@ -82,7 +81,6 @@ def eye_aspect_ratio(eye):
     ear = (A + B) / (2.0 * C)
     return ear
 
-
 def init_detector_predictor():
     # initialize dlib's face detector (HOG-based) and then create
     # the facial landmark predictor
@@ -96,10 +94,10 @@ def init_detector_predictor():
     return (detector, predictor, lStart, lEnd, rStart, rEnd)
 
 
-def start_videostream():
+def start_videostream(video_filename):
     # start the video stream thread
     print("[INFO] starting video stream thread...")
-    vs = FileVideoStream(VIDE0_FILENAME).start()
+    vs = FileVideoStream(video_filename).start()
     fileStream = True
     time.sleep(1.0)
     return (vs, fileStream)
@@ -131,14 +129,12 @@ def scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rS
             # array
             shape = predictor(gray, rect)
             shape = face_utils.shape_to_np(shape)
-
             # extract the left and right eye coordinates, then use the
             # coordinates to compute the eye aspect ratio for both eyes
             leftEye = shape[lStart:lEnd]
             rightEye = shape[rStart:rEnd]
             leftEAR = eye_aspect_ratio(leftEye)
             rightEAR = eye_aspect_ratio(rightEye)
-
             # average the eye aspect ratio together for both eyes
             ear = (leftEAR + rightEAR) / 2.0
             # Set up plot to call animate() function periodically
@@ -149,12 +145,10 @@ def scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rS
             rightEyeHull = cv2.convexHull(rightEye)
             cv2.drawContours(frame, [leftEyeHull], -1, (0, 255, 0), 1)
             cv2.drawContours(frame, [rightEyeHull], -1, (0, 255, 0), 1)
-
             # check to see if the eye aspect ratio is below the blink
             # threshold, and if so, increment the blink frame counter
             if ear < EYE_AR_THRESH:
                 COUNTER += 1
-
             # otherwise, the eye aspect ratio is not below the blink
             # threshold
             else:
@@ -236,37 +230,49 @@ def scan_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd):
                 COUNTER = 0
     return EARs
 
-
-def graph_EAR_GT(EARs, blink_vals):
-    # Add labels
+def graph_EAR_GT(EARs, blink_vals, video_filename):
     plt.xlabel('Frame Number')
     plt.ylabel('EAR')
-    # frames = max(EARs.count, blink_vals.count)
+    plt.plot(EARs, 'b')
+    plt.plot(blink_vals, 'r')
+    plt.savefig(video_filename[0:-4] + '.png', bbox_inches='tight')
+    plt.close()
+    
+
+'''
+# This version graphs the ground truth and the predictions on separate graphs
+def graph_EAR_GT(EARs, blink_vals, video_filename):
+    plt.xlabel('Frame Number')
+    plt.ylabel('EAR')
     fig1 = plt.figure()
     plt.plot(EARs, 'b')
-    plt.show()
+    fig1.savefig(video_filename[0:-4] + 'GT.png', bbox_inches='tight')
+    plt.close(fig1)
     fig2 = plt.figure()
     plt.plot(blink_vals, 'r')
-    plt.show()
-    # plt.plot( 'x', 'y1', data=EARs, marker='o', markerfacecolor='blue', markersize=12, color='skyblue', linewidth=4)
-    # plt.plot( 'x', 'y2', data=blink_vals, marker='', color='olive', linewidth=2, linestyle='dashed', label="toto")
-    # plt.legend()
-    plt.pause(15)
-
+    fig2.savefig(video_filename[0:-4] + 'BV.png', bbox_inches='tight')
+    plt.close(fig2)
+    
+'''    
 '''
 def IOU_eval():
     # intersect over union of ground truth vs prediction blink frames evaluation method
     # considered in A. Fogelton, W. Benesova's Computer Vision and Image Understanding (2016)
     iou_threshold = 0.2
+    g = 0
+    p = 0
     TP_Counter = 0
     FP_Counter = 0
     FN_Counter = 0
-    blinkpairs = []
-    for blink in blinkpairs:
-        GT_start_frame =
-        GT_end_frame =
-        pred_start_frame =
-        pred_end_frame =
+    GT_blinks = []
+    pred_blinks = []
+    while g < GT_blinks.size and p < pred_blinks.size:
+        
+        GT_start_frame = GT_blinks(g).start
+        GT_end_frame = GT_blinks(g).end
+        pred_start_frame = pred_blinks(p).start
+        pred_end_frame = pred_blinks(p).end
+        # the ground truth and prediction overlap: so find the iou
         # find the intersect and union of the groundtruth and prediction blink frames
         GT_pred_union = max(GT_end_frame, pred_end_frame) - min(GT_start_frame, pred_start_frame)
         GT_pred_intersect = min(GT_end_frame, pred_end_frame) - max(GT_start_frame, pred_start_frame)
@@ -274,25 +280,52 @@ def IOU_eval():
 
         if iou > iou_threshold:
             TP_Counter += 1
-        else:
+            p += 1
+            g += 1
+        elif pred_end_frame < GT_end_frame:
             FP_Counter += 1
+            p += 1
+        else:
             FN_Counter += 1
+            g += 1
+    FP_Counter += pred_blinks.size - p
+    FN_Counter += GT_blinks.size - g
+    
+    return (FP_Counter, FN_Counter, TP_Counter)
 '''
 
 
 def main():
+    '''
+    read_data('zju')
+    num_rows = df_videodata.shape[0]
+    for i in range(num_rows):
+        video_filename = get_VIDEO_FILENAME(i)
+        tag_filename = get_TAG_FILENAME(i)
+        gt_blinks = get_GT_blinks(tag_filename)
+        (detector, predictor, lStart, lEnd, rStart, rEnd) = init_detector_predictor()
+        (vs, fileStream) = start_videostream(video_filename)
+        EARs = scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd)
+        # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
+        graph_EAR_GT(EARs, gt_blinks, video_filename)        
+        # do a bit of cleanup
+        cv2.destroyAllWindows()
+        vs.stop()
+    '''
+    video_filename = '000001M_FBN.mp4'
+    tag_filename = '000001M_FBN.tag'
 
-
-    gt_blinks = get_GT_blinks()
+    gt_blinks = get_GT_blinks(tag_filename)
     (detector, predictor, lStart, lEnd, rStart, rEnd) = init_detector_predictor()
-    (vs, fileStream) = start_videostream()
+    (vs, fileStream) = start_videostream(video_filename)
     EARs = scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd)
     # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
-    graph_EAR_GT(EARs, gt_blinks)
+    graph_EAR_GT(EARs, gt_blinks, video_filename)   
+    print("finished graphing")     
     # do a bit of cleanup
     cv2.destroyAllWindows()
     vs.stop()
-
+    print("post cleanup")
 
 
 if __name__ == '__main__':

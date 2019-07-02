@@ -6,7 +6,7 @@ Created on Fri Jun 28 10:22:14 2019
 """
 
 # USAGE
-# python graph_retry.py --shape-predictor shape_predictor_68_face_landmarks.dat --video blink_detection_demo.mp4
+# python graph_retry.py --shape-predictor shape_predictor_68_face_landmarks.dat --video 000001M_FBN.mp4
 
 # import the necessary packages
 from scipy.spatial import distance as dist
@@ -25,7 +25,7 @@ import pandas as pd
 # the first and second columns store the frame # and the blink value
 # -1 = no blink, all other numbers tell which blink you're on (e.g. 1,2,3,...)
 
-file_name = 'person2.tag'
+file_name = '000001M_FBN.tag'
 
 
 df = pd.read_csv(file_name,skiprows = 19, sep=':',header=None,skipinitialspace=True)
@@ -176,13 +176,17 @@ while True:
     if key == ord("q"):
         break
 
-
-plt.plot(EARs)
-'''
-plt.plot( 'x', 'y1', data=EARs, marker='o', markerfacecolor='blue', markersize=12, color='skyblue', linewidth=4)
-plt.plot( 'x', 'y2', data=blink_vals, marker='', color='olive', linewidth=2, linestyle='dashed', label="toto")
-plt.legend()
-'''
+#frames = max(EARs.count, blink_vals.count)
+frames = EARs.count
+fig1 = plt.figure()
+plt.plot(EARs, 'b')
+plt.show()
+fig2 = plt.figure()
+plt.plot(blink_vals, 'r')
+plt.show()
+#plt.plot( 'x', 'y1', data=EARs, marker='o', markerfacecolor='blue', markersize=12, color='skyblue', linewidth=4)
+#plt.plot( 'x', 'y2', data=blink_vals, marker='', color='olive', linewidth=2, linestyle='dashed', label="toto")
+#plt.legend()
 plt.pause(15)
 # do a bit of cleanup
 cv2.destroyAllWindows()
