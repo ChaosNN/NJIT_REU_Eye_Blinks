@@ -238,7 +238,14 @@ def graph_EAR_GT(EARs, blink_vals, path, png_filename):
     plt.ylabel('EAR')
     plt.plot(EARs, 'b')
     plt.plot(blink_vals, 'r')
-    plt.savefig(os.path.join(path, png_filename), bbox_inches='tight')
+    file = os.path.join(path, png_filename)
+    try:
+        os.path.exists(file)
+    except IOError:
+        print("File exists and will be overwritten")
+    finally:
+        plt.savefig(os.path.join(file), bbox_inches='tight')
+
     plt.close()
     
 '''

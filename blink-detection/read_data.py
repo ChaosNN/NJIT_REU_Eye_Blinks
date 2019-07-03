@@ -26,22 +26,28 @@ print(df.at[10, 'path'])
 #print(mypath)
 '''
 
-df_videodata = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'path', 'file_name'])
+#df_videodata = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'path', 'file_name'])
 pd.set_option('display.max_columns', 5)
 
-def read_data(data_set):
+def read_data(dataset_name):
     #data_set = 'zju'
-    mypath = os.path.join(os.getcwd(), 'data_sets\\', data_set)
+    mypath = os.path.join(os.getcwd(), 'data_sets\\', dataset_name)
     for (dirpath, dirnames, filenames) in os.walk(mypath):
         if not filenames:
             print("empty")
-        if filenames:
-            print("path")
-            print(dirpath)
+            print(filenames)
+        elif filenames:
+            #print("path")
+            #print(dirpath)
             filenames.append(dirpath)
             file_name = filenames[0][:-3] + 'png'
             filenames.append(file_name)
-            df_videodata.loc[len(df_videodata)] = filenames
+            print(filenames)
+            #df_videodata.loc[len(df_videodata)] = filenames
+            #df_videodata(filenames)
+            #df_videodata.append(filenames)
+            #df_videodata.loc[df_videodata] = filenames
+            df_videodata = pd.DataFrame(filenames, columns=['video_file', 'graph_file', 'dat_file', 'text_file', 'path', 'file_name'])
     return df_videodata
 
 
