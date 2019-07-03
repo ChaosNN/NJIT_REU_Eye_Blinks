@@ -245,6 +245,7 @@ def graph_EAR_GT(EARs, blink_vals, path, png_filename):
     plt.ylabel('EAR')
     plt.plot(EARs, 'b')
     plt.plot(blink_vals, 'r')
+    # C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks\blink-detection\data_sets\zju_results
     file = os.path.join(path, png_filename)
     try:
         os.path.exists(file)

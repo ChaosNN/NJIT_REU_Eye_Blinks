@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f613655a-4b7d-45aa-b3fc-e84bdb8cc994" name="Default Changelist" comment="" />
+    <list default="true" id="f613655a-4b7d-45aa-b3fc-e84bdb8cc994" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blink-detection/noargs_multigraph.py" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/noargs_multigraph.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blink-detection/noargs_multigraph.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="254" column="23" lean-forward="true" selection-start-line="254" selection-start-column="23" selection-end-line="254" selection-end-column="23" />
+            <state relative-caret-position="-1158">
+              <caret line="247" column="96" selection-start-line="247" selection-start-column="96" selection-end-line="247" selection-end-column="96" />
             </state>
           </provider>
         </entry>
@@ -104,8 +107,8 @@
       <list>
         <option value="$PROJECT_DIR$/blink-detection/detect_blinks_videostream.py" />
         <option value="$PROJECT_DIR$/blink-detection/graph_retry.py" />
-        <option value="$PROJECT_DIR$/blink-detection/noargs_multigraph.py" />
         <option value="$PROJECT_DIR$/blink-detection/read_data.py" />
+        <option value="$PROJECT_DIR$/blink-detection/noargs_multigraph.py" />
       </list>
     </option>
   </component>
@@ -119,28 +122,39 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
+      <pane id="ProjectPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
             <path>
-              <item name="NJIT_REU_Eye_Blinks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NJIT_REU_Eye_Blinks" type="462c0819:PsiDirectoryNode" />
+              <item name="NJIT_REU_Eye_Blinks" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="NJIT_REU_Eye_Blinks" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="blink-detection" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="NJIT_REU_Eye_Blinks" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="blink-detection" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="data_sets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -259,7 +273,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35380000" />
+    <option name="totallyTimeSpent" value="35792000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -279,7 +293,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.042432815" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35785007" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39886847" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -390,8 +404,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blink-detection/noargs_multigraph.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="254" column="23" lean-forward="true" selection-start-line="254" selection-start-column="23" selection-end-line="254" selection-end-column="23" />
+        <state relative-caret-position="-1158">
+          <caret line="247" column="96" selection-start-line="247" selection-start-column="96" selection-end-line="247" selection-end-column="96" />
         </state>
       </provider>
     </entry>
