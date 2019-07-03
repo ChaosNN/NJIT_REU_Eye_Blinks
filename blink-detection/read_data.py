@@ -26,8 +26,8 @@ print(df.at[10, 'path'])
 #print(mypath)
 '''
 
-#df_videodata = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'path', 'file_name'])
-pd.set_option('display.max_columns', 5)
+df_videodata = pd.DataFrame(columns=['video_file', 'graph_file', 'dat_file', 'text_file', 'path', 'file_name'])
+pd.set_option('display.max_columns', 6)
 
 def read_data(dataset_name):
     #data_set = 'zju'
@@ -35,19 +35,32 @@ def read_data(dataset_name):
     for (dirpath, dirnames, filenames) in os.walk(mypath):
         if not filenames:
             print("empty")
-            print(filenames)
-        elif filenames:
+            #print(filenames)
+        if filenames:
             #print("path")
             #print(dirpath)
             filenames.append(dirpath)
             file_name = filenames[0][:-3] + 'png'
             filenames.append(file_name)
-            print(filenames)
-            #df_videodata.loc[len(df_videodata)] = filenames
+            #print(filenames)
+
+            # raise ValueError("cannot set a row with "
+            # ValueError: cannot set a row with mismatched columns
+            try:
+                df_videodata.loc[len(df_videodata)] = filenames
+            except ValueError:
+                #print("does not contain the png graph file")
+                #print(filenames)
+                df2 = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'path', 'file_name'])
+                df2.loc[len(df2)] = filenames
+                print("df2")
+                print(df2)
+                df = df_videodata.append(df2)
+                print(df)
             #df_videodata(filenames)
             #df_videodata.append(filenames)
             #df_videodata.loc[df_videodata] = filenames
-            df_videodata = pd.DataFrame(filenames, columns=['video_file', 'graph_file', 'dat_file', 'text_file', 'path', 'file_name'])
+
     return df_videodata
 
 
