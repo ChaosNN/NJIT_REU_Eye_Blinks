@@ -35,8 +35,8 @@ df_videodata = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'pat
 
 
 # gets the information about the file paths of the selected dataset
-def read_data(data_set):
-    mypath = os.path.join(os.getcwd(), 'data_sets\\', data_set)
+def read_data(data_set_name):
+    mypath = os.path.join(os.getcwd(), 'data_sets\\', data_set_name)
     for (dirpath, dirnames, filenames) in os.walk(mypath):
         if not filenames:
             print("empty")
@@ -65,8 +65,15 @@ def get_PATH(i):
 def get_GT_blinks(tag_filename):
     # the first and second columns store the frame # and the blink value
     # -1 = no blink, all other numbers tell which blink you're on (e.g. 1,2,3,...)
-    df = pd.read_csv(tag_filename, skiprows=19, sep=':', header=None, skipinitialspace=True)
-    # = df.iloc[:, 0]
+    mypath = os.path.join(os.getcwd(), 'data_sets\\', tag_filename)
+    #mypath = tag_filename
+    rows_to_skip = 0
+    # find the number of headerlines to be skipped (varies file to file)
+    searchfile = open(mypath, "r")
+    for i, line in enumerate(searchfile):
+        if "#start" in line: rows_to_skip = i + 1
+    searchfile.close()
+    df = pd.read_csv(mypath, skiprows= rows_to_skip, sep=':', header=None, skipinitialspace=True)
     blink_vals = (df.iloc[:, 1]).replace(-1, 0)
     blink_vals = (blink_vals).mask(blink_vals > 0, 0.35)
     return blink_vals
@@ -308,6 +315,7 @@ def main():
         cv2.destroyAllWindows()
         vs.stop()
     '''
+    path = ''
     video_filename = '000001M_FBN.avi'
     tag_filename = '000001M_FBN.tag'
     png_filename = '000001M_FBN.png'
@@ -316,7 +324,7 @@ def main():
     (vs, fileStream) = start_videostream(video_filename)
     EARs = scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd)
     # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
-    graph_EAR_GT(EARs, gt_blinks, png_filename)   
+    graph_EAR_GT(EARs, gt_blinks, path, png_filename)   
     print("finished graphing")     
     # do a bit of cleanup
     cv2.destroyAllWindows()
