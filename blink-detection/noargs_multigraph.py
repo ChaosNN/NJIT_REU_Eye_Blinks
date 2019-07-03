@@ -65,7 +65,12 @@ def get_PATH(i):
 def get_GT_blinks(tag_filename):
     # the first and second columns store the frame # and the blink value
     # -1 = no blink, all other numbers tell which blink you're on (e.g. 1,2,3,...)
-    df = pd.read_csv(tag_filename, skiprows=19, sep=':', header=None, skipinitialspace=True)
+    rows_to_skip = 0
+    searchfile = open(tag_filename, "r")
+    for line in searchfile:
+        if "#start" in line: rows_to_skip = line
+    searchfile.close()
+    df = pd.read_csv(tag_filename, skiprows= rows_to_skip, sep=':', header=None, skipinitialspace=True)
     # = df.iloc[:, 0]
     blink_vals = (df.iloc[:, 1]).replace(-1, 0)
     blink_vals = (blink_vals).mask(blink_vals > 0, 0.35)
