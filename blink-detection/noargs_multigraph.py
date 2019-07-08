@@ -359,20 +359,19 @@ def IOU_eval(GT_blinks, pred_blinks):
     TP_Counter = 0
     FP_Counter = 0
     FN_Counter = 0
-    GT_blinks = []
-    pred_blinks = []
+    print("size of the thing: ", len(GT_blinks))
     while g_idx < len(GT_blinks) and p_idx < len(pred_blinks):
         
-        GT_start_frame = GT_blinks(g_idx).start
-        GT_end_frame = GT_blinks(g_idx).end
-        pred_start_frame = pred_blinks(p_idx).start
-        pred_end_frame = pred_blinks(p_idx).end
+        GT_start_frame = GT_blinks[g_idx][0]
+        GT_end_frame = GT_blinks[g_idx][1]
+        pred_start_frame = pred_blinks[p_idx][0]
+        pred_end_frame = pred_blinks[p_idx][1]
         # the ground truth and prediction overlap: so find the iou
         # find the intersect and union of the groundtruth and prediction blink frames
         GT_pred_union = max(GT_end_frame, pred_end_frame) - min(GT_start_frame, pred_start_frame)
         GT_pred_intersect = min(GT_end_frame, pred_end_frame) - max(GT_start_frame, pred_start_frame)
         iou = GT_pred_intersect / GT_pred_union
-
+        print("iou: ", iou)
         if iou > iou_threshold:
             TP_Counter += 1
             p_idx += 1
@@ -383,6 +382,7 @@ def IOU_eval(GT_blinks, pred_blinks):
         else:
             FN_Counter += 1
             g_idx += 1
+    print(FP_Counter, FN_Counter, TP_Counter)
     FP_Counter += len(pred_blinks) - p_idx
     FN_Counter += len(GT_blinks) - g_idx
     
@@ -404,7 +404,9 @@ def main():
         EARs = scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd)
         pred_pairs = get_pred_blink_pairs(EARs, EYE_AR_THRESH)
         gt_pairs = get_GT_blink_pairs(gt_blinks)
-        IOU_vals = IOU_eval(pred_pairs, gt_pairs)
+        print(gt_pairs, pred_pairs)
+        print("size of pairs: ", len(gt_pairs))
+        IOU_vals = IOU_eval(gt_pairs, pred_pairs)
         print(IOU_vals)
         # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
         folder = get_FOLDERNAME(i)
