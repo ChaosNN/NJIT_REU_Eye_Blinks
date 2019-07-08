@@ -4,6 +4,8 @@ Created on Wed Jul  3 14:25:36 2019
 
 @author: TANMR1
 """
+# USAGE
+# python IOU_eval.py
 
 '''
 GT_blink_vals: an array of 1/-1 blink vals corresponding to each frame
@@ -29,6 +31,18 @@ def get_GT_blink_pairs(GT_blink_vals):
         GT_blink_pairs.append([start_frame, end_frame])
     print GT_blink_pairs
     return GT_blink_pairs
+# import the necessary packages
+from scipy.spatial import distance as dist
+from imutils.video import FileVideoStream
+from imutils import face_utils
+import numpy as np
+import imutils
+import time
+import dlib
+import cv2
+import matplotlib.pyplot as plt
+import pandas as pd
+import os
 
 '''
 pred_blink_vals: an array of ear vals corresponding to each frame
@@ -94,3 +108,43 @@ def IOU_eval(GT_blinks, pred_blinks):
     FN_Counter += GT_blinks.size - g_idx
     
     return (FP_Counter, FN_Counter, TP_Counter)
+
+
+def main():
+    '''
+    read_data('zju')
+    num_rows = df_videodata.shape[0]
+    for i in range(num_rows):
+        video_filename = get_VIDEO_FILENAME(i)
+        tag_filename = get_TAG_FILENAME(i)
+        png_filename = get_PNG_FILENAME(i)
+        path = get_PATH(i)
+        gt_blinks = get_GT_blinks(tag_filename)
+        (detector, predictor, lStart, lEnd, rStart, rEnd) = init_detector_predictor()
+        (vs, fileStream) = start_videostream(video_filename)
+        EARs = scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd)
+        # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
+        graph_EAR_GT(EARs, gt_blinks, path, png_filename)
+        # do a bit of cleanup
+        cv2.destroyAllWindows()
+        vs.stop()
+    '''
+    path = ''
+    video_filename = '000001M_FBN.avi'
+    tag_filename = '000001M_FBN.tag'
+    png_filename = '000001M_FBN.png'
+    gt_blinks = get_GT_blinks(tag_filename)
+    (detector, predictor, lStart, lEnd, rStart, rEnd) = init_detector_predictor()
+    (vs, fileStream) = start_videostream(video_filename)
+    EARs = scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd)
+    # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
+    graph_EAR_GT(EARs, gt_blinks, path, png_filename)   
+    print("finished graphing")     
+    # do a bit of cleanup
+    cv2.destroyAllWindows()
+    vs.stop()
+    print("post cleanup")
+    '''
+
+if __name__ == '__main__':
+    main()

@@ -5,7 +5,7 @@ Created on Mon Jul  1 10:45:29 2019
 """
 
 # USAGE
-# python graph_retry.py --shape-predictor shape_predictor_68_face_landmarks.dat --video 000001M_FBN.mp4
+# python noargs_multigraph.py
 
 # import the necessary packages
 from scipy.spatial import distance as dist
@@ -31,36 +31,67 @@ EYE_AR_THRESH = 0.3
 EYE_AR_CONSEC_FRAMES = 3    
 SHAPE_PREDICTOR_FILENAME = "shape_predictor_68_face_landmarks.dat"
 
-df_videodata = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'path', 'png_file'])
+df_videodata = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'path', 'png_file', 'folder'])
 
 
 # gets the information about the file paths of the selected dataset
-def read_data(data_set_name):
-    mypath = os.path.join(os.getcwd(), 'data_sets\\', data_set_name)
+def read_data(dataset_name):
+    mypath = os.path.join(os.getcwd(), 'data_sets\\', dataset_name)
+    print(mypath)
     for (dirpath, dirnames, filenames) in os.walk(mypath):
         if not filenames:
             print("empty")
         if filenames:
-            print("path")
-            print(dirpath)
             filenames.append(dirpath)
-            file_name = filenames[0][:-3] + 'png'
-            filenames.append(file_name)
+            filenames.append(filenames[0][:-3] + 'png')
+            dir_split = dirpath.split('\\')
+            dir_split = dir_split[len(dir_split) - 1]
+            filenames.append(dir_split)
             df_videodata.loc[len(df_videodata)] = filenames
+
     return df_videodata
 
+# saves the results of the calculations in a csv file
+# result is a string variable containing the path to the data set result's directory
+'''
+def results_file(result):
+    result_file = os.path.join(os.getcwd(), 'data_sets\\', dataset_name + '_results', file_name + '.csv')
+    df_videodata.to_csv(result_file)
+'''
+
+# checks if directory exists, if not the directory is constructed
+def check_dir(directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+
+# checks if the csv file exists
+def check_file(file_path):
+    return os.path.isfile(file_path)
+
+
+# creates a data frame, which is saved as a csv file
+def save_csv(file_path, ear, blink):
+    df = pd.DataFrame(ear, columns=['EAR'])
+    df['Ground Truth'] = pd.Series(blink)
+    df.to_csv(file_path)
 
 def get_VIDEO_FILENAME(i):
     return df_videodata.at[i, 'video_file']
 
 def get_TAG_FILENAME(i):
-    return df_videodata.at[i, 'dat_file']
+    return os.path.join(df_videodata.iloc[i]['path'], df_videodata.iloc[i]['dat_file'])
+    #return df_videodata.at[i, 'dat_file']
+
 
 def get_PNG_FILENAME(i):
     return df_videodata.at[i, 'png_file']
 
 def get_PATH(i):
     return df_videodata.at[i, 'path']
+
+def get_FOLDERNAME(i):
+    return df_videodata.at[i, 'folder']
 
 def get_GT_blinks(tag_filename):
     # the first and second columns store the frame # and the blink value
@@ -240,12 +271,29 @@ def scan_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd):
                 COUNTER = 0
     return EARs
 
-def graph_EAR_GT(EARs, blink_vals, path, png_filename):
+def graph_EAR_GT(EARs, blink_vals, path, png_filename, folder):
     plt.xlabel('Frame Number')
     plt.ylabel('EAR')
     plt.plot(EARs, 'b')
     plt.plot(blink_vals, 'r')
-    plt.savefig(os.path.join(path, png_filename), bbox_inches='tight')
+    # C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks\blink-detection\data_sets\zju_results
+    #file = os.path.join(path, png_filename)
+    file = os.path.join(os.getcwd(), 'data_sets\\', 'zju_results\\', folder)
+    result = 'results' + folder
+    path = os.path.join(file, result)
+    try:
+        check_dir(file)
+        #check_file(file)
+        check_file(path + '.csv')
+        #os.path.exists(file)
+
+    except IOError:
+        print("File exists and will be overwritten")
+    finally:
+        save_csv(os.path.join(path + '.csv'), EARs, blink_vals)
+        #plt.savefig(os.path.join(file, result), bbox_inches='tight')
+        plt.savefig(path, bbox_inches='tight')
+
     plt.close()
 
 
@@ -263,7 +311,8 @@ def main():
         (vs, fileStream) = start_videostream(video_filename)
         EARs = scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd)
         # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
-        graph_EAR_GT(EARs, gt_blinks, path, png_filename)        
+        folder = get_FOLDERNAME(i)
+        graph_EAR_GT(EARs, gt_blinks, path, png_filename, folder)
         # do a bit of cleanup
         cv2.destroyAllWindows()
         vs.stop()
