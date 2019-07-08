@@ -6,7 +6,7 @@ Created on Wed Jul  3 14:25:36 2019
 """
 
 '''
-GT_blink_vals: an array of frame numbers and corresponding 1/-1 blink vals
+GT_blink_vals: an array of 1/-1 blink vals corresponding to each frame
 '''
 def get_GT_blink_pairs(GT_blink_vals):
     # the first and second columns store the frame # and the blink value
@@ -16,18 +16,41 @@ def get_GT_blink_pairs(GT_blink_vals):
     end_frame = 0
     prev = -1
     for frame_idx, blink_val in enumerate(GT_blink_vals):
-        if prev == -1 and blink_val == 1:
+        if prev == -1 and blink_val > 0:
             start_frame = frame_idx
-        elif prev == 1 and blink_val == -1:
+        elif prev > 0 and blink_val == -1:
             end_frame = frame_idx - 1
             GT_blink_pairs.append([start_frame, end_frame])
             start_frame = 0
             end_frame = 0
+        prev = blink_val
     if start_frame != 0 and end_frame == 0:
         end_frame = frame_idx - 1
         GT_blink_pairs.append([start_frame, end_frame])
     print GT_blink_pairs
     return GT_blink_pairs
+
+'''
+pred_blink_vals: an array of ear vals corresponding to each frame
+'''
+def get_pred_blink_pairs(pred_blink_vals, EAR_threshold):
+    pred_blink_pairs = []
+    start_frame = 0
+    end_frame = 0
+    prev = -1
+    for frame_idx, blink_val in enumerate(pred_blink_vals):
+        if prev > EAR_threshold and blink_val <= EAR_threshold:
+            start_frame = frame_idx
+        elif prev <= EAR_threshold and blink_val > EAR_threshold:
+            end_frame = frame_idx - 1
+            pred_blink_pairs.append([start_frame, end_frame])
+            start_frame = 0
+            end_frame = 0
+    if start_frame != 0 and end_frame == 0:
+        end_frame = frame_idx - 1
+        pred_blink_pairs.append([start_frame, end_frame])
+    print pred_blink_pairs
+    return pred_blink_pairs
 
 '''
 GT_blinks: array of pairs for the ground truth blinks
