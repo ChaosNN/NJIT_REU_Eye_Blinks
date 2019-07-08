@@ -280,6 +280,7 @@ def graph_EAR_GT(EARs, blink_vals, path, png_filename, folder):
     #file = os.path.join(path, png_filename)
     file = os.path.join(os.getcwd(), 'data_sets\\', 'zju_results\\', folder)
     result = 'results' + folder
+    path = os.path.join(file, result)
     try:
         check_dir(file)
         #check_file(file)
@@ -289,8 +290,9 @@ def graph_EAR_GT(EARs, blink_vals, path, png_filename, folder):
     except IOError:
         print("File exists and will be overwritten")
     finally:
-        save_csv(result, EARs, blink_vals)
-        plt.savefig(os.path.join(file, result), bbox_inches='tight')
+        save_csv(os.path.join(path + '.csv'), EARs, blink_vals)
+        #plt.savefig(os.path.join(file, result), bbox_inches='tight')
+        plt.savefig(path, bbox_inches='tight')
 
     plt.close()
 

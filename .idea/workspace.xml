@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f613655a-4b7d-45aa-b3fc-e84bdb8cc994" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju/1/000001M_FBN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju_results/1/results1.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/blink-detection/noargs_multigraph.py" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/noargs_multigraph.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +29,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blink-detection/noargs_multigraph.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="291" column="24" lean-forward="true" selection-start-line="291" selection-start-column="24" selection-end-line="291" selection-end-column="24" />
+            <state relative-caret-position="53">
+              <caret line="284" column="23" lean-forward="true" selection-start-line="284" selection-start-column="23" selection-end-line="284" selection-end-column="23" />
+              <folding>
+                <element signature="e#2698#3413#0" />
+                <element signature="e#3447#3847#0" />
+                <element signature="e#3884#4437#0" />
+                <element signature="e#4483#4685#0" />
+                <element signature="e#4785#8003#0" />
+                <element signature="e#8091#10305#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -239,12 +248,12 @@
       <workItem from="1562163957663" duration="7571000" />
       <workItem from="1562513419644" duration="7964000" />
       <workItem from="1562521594645" duration="462000" />
-      <workItem from="1562598299178" duration="6392000" />
+      <workItem from="1562598299178" duration="6675000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51848000" />
+    <option name="totallyTimeSpent" value="52131000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -349,8 +358,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blink-detection/noargs_multigraph.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="291" column="24" lean-forward="true" selection-start-line="291" selection-start-column="24" selection-end-line="291" selection-end-column="24" />
+        <state relative-caret-position="53">
+          <caret line="284" column="23" lean-forward="true" selection-start-line="284" selection-start-column="23" selection-end-line="284" selection-end-column="23" />
+          <folding>
+            <element signature="e#2698#3413#0" />
+            <element signature="e#3447#3847#0" />
+            <element signature="e#3884#4437#0" />
+            <element signature="e#4483#4685#0" />
+            <element signature="e#4785#8003#0" />
+            <element signature="e#8091#10305#0" />
+          </folding>
         </state>
       </provider>
     </entry>
