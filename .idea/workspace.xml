@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f613655a-4b7d-45aa-b3fc-e84bdb8cc994" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju/1/000001M_FBN.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/blink-detection/noargs_multigraph.py" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/noargs_multigraph.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blink-detection/read_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/read_data.py" afterDir="false" />
     </list>
@@ -18,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blink-detection/noargs_multigraph.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="279" column="32" selection-start-line="279" selection-start-column="32" selection-end-line="279" selection-end-column="32" />
+            <state relative-caret-position="1649">
+              <caret line="273" column="6" lean-forward="true" selection-start-line="273" selection-start-column="6" selection-end-line="273" selection-end-column="6" />
               <folding>
                 <element signature="e#2040#2079#0" />
                 <element signature="e#2110#2147#0" />
@@ -39,8 +37,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blink-detection/read_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="86" column="63" lean-forward="true" selection-start-line="86" selection-start-column="63" selection-end-line="86" selection-end-column="63" />
+            <state relative-caret-position="365">
+              <caret line="97" column="49" selection-start-line="97" selection-start-column="49" selection-end-line="97" selection-end-column="49" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -241,12 +239,12 @@
       <workItem from="1562163957663" duration="7571000" />
       <workItem from="1562513419644" duration="7964000" />
       <workItem from="1562521594645" duration="462000" />
-      <workItem from="1562598299178" duration="3527000" />
+      <workItem from="1562598299178" duration="4128000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48983000" />
+    <option name="totallyTimeSpent" value="49584000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -261,11 +259,11 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20576407" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20576407" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32956153" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32956153" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.27157003" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39886847" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -288,7 +286,7 @@
     <option name="version" value="1" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$read_data.coverage" NAME="read_data Coverage Results" MODIFIED="1562601869943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
+    <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$read_data.coverage" NAME="read_data Coverage Results" MODIFIED="1562602544800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
     <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$noargs_multigraph.coverage" NAME="noargs_multigraph Coverage Results" MODIFIED="1562173372875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
     <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$graph_retry.coverage" NAME="graph_retry Coverage Results" MODIFIED="1561991782704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
   </component>
@@ -342,8 +340,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blink-detection/read_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="86" column="63" lean-forward="true" selection-start-line="86" selection-start-column="63" selection-end-line="86" selection-end-column="63" />
+        <state relative-caret-position="365">
+          <caret line="97" column="49" selection-start-line="97" selection-start-column="49" selection-end-line="97" selection-end-column="49" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -352,8 +350,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blink-detection/noargs_multigraph.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="279" column="32" selection-start-line="279" selection-start-column="32" selection-end-line="279" selection-end-column="32" />
+        <state relative-caret-position="1649">
+          <caret line="273" column="6" lean-forward="true" selection-start-line="273" selection-start-column="6" selection-end-line="273" selection-end-column="6" />
           <folding>
             <element signature="e#2040#2079#0" />
             <element signature="e#2110#2147#0" />

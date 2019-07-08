@@ -53,10 +53,11 @@ def read_data(dataset_name):
 
 # saves the results of the calculations in a csv file
 # result is a string variable containing the path to the data set result's directory
+'''
 def results_file(result):
     result_file = os.path.join(os.getcwd(), 'data_sets\\', dataset_name + '_results', file_name + '.csv')
     df_videodata.to_csv(result_file)
-
+'''
 
 # checks if directory exists, if not the directory is constructed
 def check_dir(directory):
@@ -283,7 +284,7 @@ def graph_EAR_GT(EARs, blink_vals, path, png_filename, folder):
     except IOError:
         print("File exists and will be overwritten")
     finally:
-        save_csv(file, EARs, blink_vals)
+        save_csv(result, EARs, blink_vals)
         plt.savefig(os.path.join(file), bbox_inches='tight')
 
     plt.close()
