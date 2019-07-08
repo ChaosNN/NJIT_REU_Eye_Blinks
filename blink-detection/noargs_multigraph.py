@@ -277,11 +277,12 @@ def graph_EAR_GT(EARs, blink_vals, path, png_filename, folder):
     plt.plot(EARs, 'b')
     plt.plot(blink_vals, 'r')
     # C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks\blink-detection\data_sets\zju_results
-    file = os.path.join(path, png_filename)
+    #file = os.path.join(path, png_filename)
+    file = os.path.join(os.getcwd(), 'data_sets\\', 'zju_results\\', folder)
     result = 'results' + folder
     try:
-        check_dir(path)
-        check_file(file)
+        check_dir(file)
+        #check_file(file)
         check_file(path + '.csv')
         #os.path.exists(file)
 
@@ -289,7 +290,7 @@ def graph_EAR_GT(EARs, blink_vals, path, png_filename, folder):
         print("File exists and will be overwritten")
     finally:
         save_csv(result, EARs, blink_vals)
-        plt.savefig(os.path.join(file), bbox_inches='tight')
+        plt.savefig(os.path.join(file, result), bbox_inches='tight')
 
     plt.close()
 
