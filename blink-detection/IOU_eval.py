@@ -7,6 +7,21 @@ Created on Wed Jul  3 14:25:36 2019
 # USAGE
 # python IOU_eval.py
 
+
+# import the necessary packages
+from scipy.spatial import distance as dist
+from imutils.video import FileVideoStream
+from imutils import face_utils
+import numpy as np
+import imutils
+import time
+import dlib
+import cv2
+import matplotlib.pyplot as plt
+import pandas as pd
+import os
+
+
 '''
 GT_blink_vals: an array of 1/-1 blink vals corresponding to each frame
 '''
@@ -31,18 +46,6 @@ def get_GT_blink_pairs(GT_blink_vals):
         GT_blink_pairs.append([start_frame, end_frame])
     print GT_blink_pairs
     return GT_blink_pairs
-# import the necessary packages
-from scipy.spatial import distance as dist
-from imutils.video import FileVideoStream
-from imutils import face_utils
-import numpy as np
-import imutils
-import time
-import dlib
-import cv2
-import matplotlib.pyplot as plt
-import pandas as pd
-import os
 
 '''
 pred_blink_vals: an array of ear vals corresponding to each frame
