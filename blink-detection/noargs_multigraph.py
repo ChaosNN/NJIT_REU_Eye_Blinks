@@ -31,7 +31,7 @@ EYE_AR_THRESH = 0.3
 EYE_AR_CONSEC_FRAMES = 3    
 SHAPE_PREDICTOR_FILENAME = "shape_predictor_68_face_landmarks.dat"
 
-df_videodata = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'path', 'file_name', 'folder'])
+df_videodata = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'path', 'png_file', 'folder'])
 
 
 # gets the information about the file paths of the selected dataset
@@ -80,7 +80,8 @@ def get_VIDEO_FILENAME(i):
     return df_videodata.at[i, 'video_file']
 
 def get_TAG_FILENAME(i):
-    return df_videodata.at[i, 'dat_file']
+    return os.path.join(df_videodata.iloc[i]['path'], df_videodata.iloc[i]['dat_file'])
+    #return df_videodata.at[i, 'dat_file']
 
 
 def get_PNG_FILENAME(i):
@@ -88,6 +89,9 @@ def get_PNG_FILENAME(i):
 
 def get_PATH(i):
     return df_videodata.at[i, 'path']
+
+def get_FOLDERNAME(i):
+    return df_videodata.at[i, 'folder']
 
 def get_GT_blinks(tag_filename):
     # the first and second columns store the frame # and the blink value
@@ -304,7 +308,8 @@ def main():
         (vs, fileStream) = start_videostream(video_filename)
         EARs = scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd)
         # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
-        graph_EAR_GT(EARs, gt_blinks, path, png_filename)
+        folder = get_FOLDERNAME(i)
+        graph_EAR_GT(EARs, gt_blinks, path, png_filename, folder)
         # do a bit of cleanup
         cv2.destroyAllWindows()
         vs.stop()
