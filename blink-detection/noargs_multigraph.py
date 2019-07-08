@@ -309,15 +309,14 @@ def get_GT_blink_pairs(GT_blink_vals):
     prev = -1
     print("in gt_blink_pairs")
     for frame_idx, blink_val in enumerate(GT_blink_vals):
-        print("prev: ", prev)
-        print("BLINK_VAL: ", blink_val)
-        if prev == -1 and blink_val > 0:
+        #print("prev: ", prev)
+        #print("BLINK_VAL: ", blink_val)
+        if prev == -1 and blink_val == 1:
             print("SETTING START FRAME")
             start_frame = frame_idx
-        elif prev > 0 and blink_val == -1:
+        elif prev == 1 and blink_val == -1:
             end_frame = frame_idx - 1
             GT_blink_pairs.append([start_frame, end_frame])
-            
             '''
             print("prev: ", prev)
             print("start: ", start_frame)
@@ -329,7 +328,7 @@ def get_GT_blink_pairs(GT_blink_vals):
     if start_frame != 0 and end_frame == 0:
         end_frame = frame_idx - 1
         GT_blink_pairs.append([start_frame, end_frame])
-    #print(GT_blink_pairs)
+    print(GT_blink_pairs)
     return GT_blink_pairs
 
 '''
@@ -356,7 +355,7 @@ def get_pred_blink_pairs(pred_blink_vals, EAR_threshold):
     if start_frame != 0 and end_frame == 0:
         end_frame = frame_idx - 1
         pred_blink_pairs.append([start_frame, end_frame])
-    #print(pred_blink_pairs)
+    print(pred_blink_pairs)
     return pred_blink_pairs
 
 '''
