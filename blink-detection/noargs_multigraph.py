@@ -359,7 +359,6 @@ def IOU_eval(GT_blinks, pred_blinks):
     TP_Counter = 0
     FP_Counter = 0
     FN_Counter = 0
-    print("size of the thing: ", len(GT_blinks))
     while g_idx < len(GT_blinks) and p_idx < len(pred_blinks):
         
         GT_start_frame = GT_blinks[g_idx][0]
@@ -371,7 +370,6 @@ def IOU_eval(GT_blinks, pred_blinks):
         GT_pred_union = max(GT_end_frame, pred_end_frame) - min(GT_start_frame, pred_start_frame)
         GT_pred_intersect = min(GT_end_frame, pred_end_frame) - max(GT_start_frame, pred_start_frame)
         iou = GT_pred_intersect / GT_pred_union
-        print("iou: ", iou)
         if iou > iou_threshold:
             TP_Counter += 1
             p_idx += 1
@@ -404,10 +402,7 @@ def main():
         EARs = scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd)
         pred_pairs = get_pred_blink_pairs(EARs, EYE_AR_THRESH)
         gt_pairs = get_GT_blink_pairs(gt_blinks)
-        print(gt_pairs, pred_pairs)
-        print("size of pairs: ", len(gt_pairs))
         IOU_vals = IOU_eval(gt_pairs, pred_pairs)
-        print(IOU_vals)
         # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
         folder = get_FOLDERNAME(i)
         graph_EAR_GT(EARs, gt_blinks, path, png_filename, folder)
