@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f613655a-4b7d-45aa-b3fc-e84bdb8cc994" name="Default Changelist" comment="" />
+    <list default="true" id="f613655a-4b7d-45aa-b3fc-e84bdb8cc994" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju/1/000001M_FBN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blink-detection/noargs_multigraph.py" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/noargs_multigraph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blink-detection/read_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/read_data.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,71 +18,32 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blink-detection/noargs_multigraph.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="293" column="7" lean-forward="true" selection-start-line="293" selection-start-column="7" selection-end-line="293" selection-end-column="7" />
+            <state relative-caret-position="178">
+              <caret line="279" column="32" selection-start-line="279" selection-start-column="32" selection-end-line="279" selection-end-column="32" />
+              <folding>
+                <element signature="e#2040#2079#0" />
+                <element signature="e#2110#2147#0" />
+                <element signature="e#2179#2216#0" />
+                <element signature="e#2239#2272#0" />
+                <element signature="e#2311#3026#0" />
+                <element signature="e#3060#3460#0" />
+                <element signature="e#3497#4050#0" />
+                <element signature="e#4096#4298#0" />
+                <element signature="e#4398#7616#0" />
+                <element signature="e#7704#9918#0" />
+              </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju/1/000001M_FBN.tag">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-255" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju/1/000001M_FBN.png">
-          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blink-detection/read_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="742">
-              <caret line="67" column="62" selection-start-line="67" selection-start-column="62" selection-end-line="67" selection-end-column="62" />
+            <state relative-caret-position="387">
+              <caret line="86" column="63" lean-forward="true" selection-start-line="86" selection-start-column="63" selection-end-line="86" selection-end-column="63" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Python37/Lib/site-packages/pandas/core/generic.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="5066" selection-start-line="5066" selection-end-line="5066" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Python37/Lib/site-packages/pandas/core/internals/managers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="1690" selection-start-line="1690" selection-end-line="1690" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blink-detection/graph.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blink-detection/detect_blinks_videostream.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -104,8 +70,8 @@
       <list>
         <option value="$PROJECT_DIR$/blink-detection/detect_blinks_videostream.py" />
         <option value="$PROJECT_DIR$/blink-detection/graph_retry.py" />
-        <option value="$PROJECT_DIR$/blink-detection/read_data.py" />
         <option value="$PROJECT_DIR$/blink-detection/noargs_multigraph.py" />
+        <option value="$PROJECT_DIR$/blink-detection/read_data.py" />
       </list>
     </option>
   </component>
@@ -129,7 +95,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -148,10 +113,18 @@
               <item name="blink-detection" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="data_sets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
+            <path>
+              <item name="NJIT_REU_Eye_Blinks" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="blink-detection" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="data_sets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="zju_results" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -266,11 +239,14 @@
       <workItem from="1562007853522" duration="4479000" />
       <workItem from="1562074851432" duration="7397000" />
       <workItem from="1562163957663" duration="7571000" />
+      <workItem from="1562513419644" duration="7964000" />
+      <workItem from="1562521594645" duration="462000" />
+      <workItem from="1562598299178" duration="3527000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36063000" />
+    <option name="totallyTimeSpent" value="48983000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -283,13 +259,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16085792" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20576407" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35785007" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32956153" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.27157003" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39886847" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -310,19 +287,8 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/blink-detection/noargs_multigraph.py</url>
-          <line>41</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$read_data.coverage" NAME="read_data Coverage Results" MODIFIED="1562172679006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
+    <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$read_data.coverage" NAME="read_data Coverage Results" MODIFIED="1562601869943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
     <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$noargs_multigraph.coverage" NAME="noargs_multigraph Coverage Results" MODIFIED="1562173372875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
     <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$graph_retry.coverage" NAME="graph_retry Coverage Results" MODIFIED="1561991782704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
   </component>
@@ -334,31 +300,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/person2.tag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/blink-detection/person2.tag" />
     <entry file="file://$PROJECT_DIR$/blink-detection/graph_retry.py" />
-    <entry file="file://$PROJECT_DIR$/blink-detection/graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/detect_blinks_videostream.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/blink-detection/graph.py" />
+    <entry file="file://$PROJECT_DIR$/blink-detection/detect_blinks_videostream.py" />
     <entry file="file://C:/Python37/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -366,42 +311,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju/1/000001M_FBN.png" />
+    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_results/000003M_FBN..csv" />
+    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju/1/000001M_FBN.tag">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://C:/Python37/Lib/site-packages/pandas/core/indexing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42755">
+          <caret line="2533" selection-start-line="2533" selection-end-line="2533" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://C:/Python37/Lib/site-packages/pandas/core/internals/managers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
+        <state relative-caret-position="28118">
           <caret line="1690" selection-start-line="1690" selection-end-line="1690" />
         </state>
       </provider>
     </entry>
     <entry file="file://C:/Python37/Lib/site-packages/pandas/core/generic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
+        <state relative-caret-position="625">
           <caret line="5066" selection-start-line="5066" selection-end-line="5066" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju/1/000001M_FBN.tag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255" />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_results/1/results1.csv">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/blink-detection/read_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="742">
-          <caret line="67" column="62" selection-start-line="67" selection-start-column="62" selection-end-line="67" selection-end-column="62" />
+        <state relative-caret-position="387">
+          <caret line="86" column="63" lean-forward="true" selection-start-line="86" selection-start-column="63" selection-end-line="86" selection-end-column="63" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju/1/000001M_FBN.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/blink-detection/noargs_multigraph.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="293" column="7" lean-forward="true" selection-start-line="293" selection-start-column="7" selection-end-line="293" selection-end-column="7" />
+        <state relative-caret-position="178">
+          <caret line="279" column="32" selection-start-line="279" selection-start-column="32" selection-end-line="279" selection-end-column="32" />
+          <folding>
+            <element signature="e#2040#2079#0" />
+            <element signature="e#2110#2147#0" />
+            <element signature="e#2179#2216#0" />
+            <element signature="e#2239#2272#0" />
+            <element signature="e#2311#3026#0" />
+            <element signature="e#3060#3460#0" />
+            <element signature="e#3497#4050#0" />
+            <element signature="e#4096#4298#0" />
+            <element signature="e#4398#7616#0" />
+            <element signature="e#7704#9918#0" />
+          </folding>
         </state>
       </provider>
     </entry>
