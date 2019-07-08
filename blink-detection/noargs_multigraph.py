@@ -5,7 +5,7 @@ Created on Mon Jul  1 10:45:29 2019
 """
 
 # USAGE
-# python graph_retry.py --shape-predictor shape_predictor_68_face_landmarks.dat --video 000001M_FBN.mp4
+# python noargs_multigraph.py
 
 # import the necessary packages
 from scipy.spatial import distance as dist
