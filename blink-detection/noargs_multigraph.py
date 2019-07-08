@@ -106,7 +106,7 @@ def get_GT_blinks(tag_filename):
     searchfile.close()
     df = pd.read_csv(mypath, skiprows= rows_to_skip, sep=':', header=None, skipinitialspace=True)
     blink_vals = (df.iloc[:, 1]).replace(-1, 0)
-    blink_vals = (blink_vals).mask(blink_vals > 0, 0.35)
+    blink_vals = (blink_vals).mask(blink_vals > 0, EYE_AR_THRESH)
     return blink_vals
 
 
@@ -309,25 +309,16 @@ def get_GT_blink_pairs(GT_blink_vals):
     prev = -1
     print("in gt_blink_pairs")
     for frame_idx, blink_val in enumerate(GT_blink_vals):
-        #print("prev: ", prev)
-        #print("BLINK_VAL: ", blink_val)
-        if prev == -1 and blink_val == 1:
-            print("SETTING START FRAME")
+        if prev == 0.0 and blink_val == EYE_AR_THRESH:
             start_frame = frame_idx
-        elif prev == 1 and blink_val == -1:
+        elif prev == EYE_AR_THRESH and blink_val == 0.0:
             end_frame = frame_idx - 1
             GT_blink_pairs.append([start_frame, end_frame])
-            '''
-            print("prev: ", prev)
-            print("start: ", start_frame)
-            print("end: ", end_frame)
-            '''
             start_frame = 0
             end_frame = 0
         prev = blink_val
     if start_frame != 0 and end_frame == 0:
-        end_frame = frame_idx - 1
-        GT_blink_pairs.append([start_frame, end_frame])
+        GT_blink_pairs.append([start_frame, len(GT_blink_vals)])
     print(GT_blink_pairs)
     return GT_blink_pairs
 
@@ -335,26 +326,22 @@ def get_GT_blink_pairs(GT_blink_vals):
 pred_blink_vals: an array of ear vals corresponding to each frame
 '''
 def get_pred_blink_pairs(pred_blink_vals, EAR_threshold):
+    print("in pred pairs")
     pred_blink_pairs = []
     start_frame = 0
     end_frame = 0
-    prev = -1
+    prev = 1
     for frame_idx, blink_val in enumerate(pred_blink_vals):
         if prev > EAR_threshold and blink_val <= EAR_threshold:
             start_frame = frame_idx
         elif prev <= EAR_threshold and blink_val > EAR_threshold:
             end_frame = frame_idx - 1
             pred_blink_pairs.append([start_frame, end_frame])
-            '''
-            print("prev: ", prev)
-            print("start: ", start_frame)
-            print("end: ", end_frame)
-            '''
             start_frame = 0
             end_frame = 0
+        prev = blink_val
     if start_frame != 0 and end_frame == 0:
-        end_frame = frame_idx - 1
-        pred_blink_pairs.append([start_frame, end_frame])
+        pred_blink_pairs.append([start_frame, len(pred_blink_vals)])
     print(pred_blink_pairs)
     return pred_blink_pairs
 
@@ -374,7 +361,7 @@ def IOU_eval(GT_blinks, pred_blinks):
     FN_Counter = 0
     GT_blinks = []
     pred_blinks = []
-    while g_idx < GT_blinks.len and p_idx < pred_blinks.len:
+    while g_idx < len(GT_blinks) and p_idx < len(pred_blinks):
         
         GT_start_frame = GT_blinks(g_idx).start
         GT_end_frame = GT_blinks(g_idx).end
@@ -396,8 +383,8 @@ def IOU_eval(GT_blinks, pred_blinks):
         else:
             FN_Counter += 1
             g_idx += 1
-    FP_Counter += pred_blinks.size - p_idx
-    FN_Counter += GT_blinks.size - g_idx
+    FP_Counter += len(pred_blinks) - p_idx
+    FN_Counter += len(GT_blinks) - g_idx
     
     return (FP_Counter, FN_Counter, TP_Counter)
 
