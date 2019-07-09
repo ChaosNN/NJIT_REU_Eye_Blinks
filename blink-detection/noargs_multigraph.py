@@ -20,6 +20,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import os
 
+
 '''
 GLOBAL VARS
 '''
@@ -394,7 +395,7 @@ def IOU_eval(GT_blinks, pred_blinks):
 
 def main():
     
-    read_data('eyeblink8')
+    read_data('zju')
     num_rows = df_videodata.shape[0]
 
     for i in range(num_rows):
