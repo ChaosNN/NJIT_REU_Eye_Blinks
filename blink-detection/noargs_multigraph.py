@@ -276,23 +276,25 @@ def graph_EAR_GT(EARs, blink_vals, path, png_filename, folder):
     plt.ylabel('EAR')
     plt.plot(EARs, 'b')
     plt.plot(blink_vals, 'r')
-    # C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks\blink-detection\data_sets\zju_results
-    #file = os.path.join(path, png_filename)
-    file = os.path.join(os.getcwd(), 'data_sets\\', 'zju_results\\', folder)
+    data_set = path.split('\\')
+    data_set = data_set[len(data_set) - 2] + '_results'
+    print(data_set)
+    file = os.path.join(os.getcwd(), 'data_sets\\', data_set, folder)
+    print(file)
     result = 'results' + folder
-    path = os.path.join(file, result)
+    print(os.path.join(file, result + '.csv'))
+
     try:
         check_dir(file)
-        #check_file(file)
+        # check_file(file)
         check_file(path + '.csv')
-        #os.path.exists(file)
+        # os.path.exists(file)
 
     except IOError:
         print("File exists and will be overwritten")
     finally:
-        save_csv(os.path.join(path + '.csv'), EARs, blink_vals)
-        #plt.savefig(os.path.join(file, result), bbox_inches='tight')
-        plt.savefig(path, bbox_inches='tight')
+        save_csv(os.path.join(file, result + '.csv'), EARs, blink_vals)
+        plt.savefig(os.path.join(file, result + 'graph' + '.png'), bbox_inches='tight')
 
     plt.close()
 
@@ -301,6 +303,7 @@ def main():
     
     read_data('zju')
     num_rows = df_videodata.shape[0]
+
     for i in range(num_rows):
         video_filename = get_VIDEO_FILENAME(i)
         tag_filename = get_TAG_FILENAME(i)
@@ -316,6 +319,7 @@ def main():
         # do a bit of cleanup
         cv2.destroyAllWindows()
         vs.stop()
+
     '''
     path = ''
     video_filename = '000001M_FBN.avi'

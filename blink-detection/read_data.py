@@ -94,5 +94,5 @@ print(check_dir(dirz))
 dirzz = 'C:\\Users\\peted\\Documents\\Git_Hub\\NJIT_REU_Eye_Blinks\\blink-detection\\data_sets\\zju_results\\1'
 print(check_dir(dirzz))
 print(save_csv(fileName))
-print(df_videodata.iloc[20]['folder'])
+print(df_videodata.iloc[20]['path'])
 print('results' + df_videodata.iloc[20]['folder'])
