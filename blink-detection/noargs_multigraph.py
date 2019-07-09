@@ -278,7 +278,7 @@ def graph_EAR_GT(EARs, blink_vals, path, png_filename, folder):
     plt.plot(blink_vals, 'r')
     # C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks\blink-detection\data_sets\zju_results
     #file = os.path.join(path, png_filename)
-    file = os.path.join(os.getcwd(), 'data_sets\\', 'zju_results\\', folder)
+    file = os.path.join(os.getcwd(), 'data_sets\\', 'eyeblink8_results\\', folder)
     result = 'results' + folder
     path = os.path.join(file, result)
     try:
@@ -391,7 +391,7 @@ def IOU_eval(GT_blinks, pred_blinks):
 
 def main():
     
-    read_data('zju')
+    read_data('eyeblink8')
     num_rows = df_videodata.shape[0]
     for i in range(num_rows):
         video_filename = get_VIDEO_FILENAME(i)
