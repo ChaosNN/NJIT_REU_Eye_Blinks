@@ -294,7 +294,8 @@ def graph_EAR_GT(EARs, blink_vals, path, png_filename, folder):
         print("File exists and will be overwritten")
     finally:
         save_csv(os.path.join(file, result + '.csv'), EARs, blink_vals)
-        plt.savefig(os.path.join(file, result + 'graph' + '.png'), bbox_inches='tight')
+        #plt.savefig(os.path.join(file, result + 'graph' + '.png'), bbox_inches='tight')
+        plt.savefig(os.path.join(file, result + png_filename), bbox_inches='tight')
 
     plt.close()
 
