@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f613655a-4b7d-45aa-b3fc-e84bdb8cc994" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/blink-detection/000001M_FBN.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blink-detection/000002M_FNN.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blink-detection/blink_detection_demo.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blink-detection/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju_results/1/results1graph.png" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/data_sets/zju_results/1/results1graph.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju_results/1/results1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju_results/1/results1000001M_FBN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju_results/1/results1graph.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/1/results1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/1/results1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/1/results1graph.png" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/1/results1graph.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/10/results10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/10/results10.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/10/results10graph.png" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/10/results10graph.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/2/results2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/2/results2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/2/results2graph.png" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/2/results2graph.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blink-detection/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blink-detection/read_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/read_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blink-detection/start_vid_analyzing.py" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/start_vid_analyzing.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blink-detection/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="91" column="59" selection-start-line="91" selection-start-column="59" selection-end-line="91" selection-end-column="59" />
+            <state relative-caret-position="204">
+              <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
               <folding>
                 <element signature="e#156#166#0" expanded="true" />
               </folding>
@@ -49,7 +51,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blink-detection/start_vid_analyzing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
+            <state relative-caret-position="843">
               <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
               <folding>
                 <element signature="e#86#128#0" expanded="true" />
@@ -120,10 +122,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="width" value="978" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectView">
     <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
@@ -142,6 +144,19 @@
               <item name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="blink-detection" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
+            <path>
+              <item name="NJIT_REU_Eye_Blinks" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="blink-detection" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="data_sets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="NJIT_REU_Eye_Blinks" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="blink-detection" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="data_sets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="zju" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -158,11 +173,11 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks\blink-detection" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks\blink-detection\data_sets\zju_test\10" />
+      <recent name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks\blink-detection" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks\blink-detection" />
     </key>
   </component>
@@ -302,12 +317,12 @@
       <workItem from="1562699424188" duration="6676000" />
       <workItem from="1562730935183" duration="1729000" />
       <workItem from="1562770065226" duration="3448000" />
-      <workItem from="1562777978152" duration="2928000" />
+      <workItem from="1562777978152" duration="4892000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73975000" />
+    <option name="totallyTimeSpent" value="75939000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -322,7 +337,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25536194" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13538875" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -433,9 +448,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/2/results2graph.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/1/results1graph.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/10/results10graph.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/blink-detection/start_vid_analyzing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
+        <state relative-caret-position="843">
           <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
           <folding>
             <element signature="e#86#128#0" expanded="true" />
@@ -448,8 +472,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blink-detection/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="91" column="59" selection-start-line="91" selection-start-column="59" selection-end-line="91" selection-end-column="59" />
+        <state relative-caret-position="204">
+          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
           <folding>
             <element signature="e#156#166#0" expanded="true" />
           </folding>
