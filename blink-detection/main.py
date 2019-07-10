@@ -23,15 +23,15 @@ GLOBAL VARS
 
 # eye aspect ratio to indicate blink 
 EYE_AR_THRESH = 0.3
-
-df_videodata = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'path', 'png_file', 'folder'])
+column_name = ['video_file_avi', 'dat_file', 'text_file', 'path', 'png_file', 'folder']
+df_videodata = pd.DataFrame(columns=column_name)
 
 
 # gets the information about the file paths of the selected dataset
 def read_data(dataset_name):
     mypath = os.path.join(os.getcwd(), 'data_sets\\', dataset_name)
-    print(mypath)
     for (dirpath, dirnames, filenames) in os.walk(mypath):
+        print(filenames)
         if not filenames:
             print("empty")
         if filenames:
@@ -41,29 +41,34 @@ def read_data(dataset_name):
             dir_split = dir_split[len(dir_split) - 1]
             filenames.append(dir_split)
             df_videodata.loc[len(df_videodata)] = filenames
+            df_videodata[column_name] = df_videodata[column_name].astype(str)
 
     return df_videodata
 
 def get_VIDEO_FILENAME(i):
-    return df_videodata.at[i, 'video_file']
+      return df_videodata.at[i, 'video_file_avi']
+
 
 def get_TAG_FILENAME(i):
     return os.path.join(df_videodata.iloc[i]['path'], df_videodata.iloc[i]['dat_file'])
-   
+
+
 def get_PNG_FILENAME(i):
     return df_videodata.at[i, 'png_file']
+
 
 def get_PATH(i):
     return df_videodata.at[i, 'path']
 
+
 def get_FOLDERNAME(i):
     return df_videodata.at[i, 'folder']
+
 
 def get_GT_blinks(tag_filename):
     # the first and second columns store the frame # and the blink value
     # -1 = no blink, all other numbers tell which blink you're on (e.g. 1,2,3,...)
     mypath = os.path.join(os.getcwd(), 'data_sets\\', tag_filename)
-    #mypath = tag_filename
     rows_to_skip = 0
     # find the number of headerlines to be skipped (varies file to file)
     searchfile = open(mypath, "r")
@@ -85,6 +90,7 @@ def main():
         tag_filename = get_TAG_FILENAME(i)
         png_filename = get_PNG_FILENAME(i)
         path = get_PATH(i)
+        video_filename = os.path.join(path, video_filename)
         gt_blinks = get_GT_blinks(tag_filename)
         (detector, predictor, lStart, lEnd, rStart, rEnd) = vid.init_detector_predictor()
         (vs, fileStream) = vid.start_videostream(video_filename)
