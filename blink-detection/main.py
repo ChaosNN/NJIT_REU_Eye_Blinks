@@ -14,7 +14,8 @@ import os
 import IOU_eval as evalu
 import blink_frame_pairs as bfp
 import start_vid_analyzing as vid
-import graph_EAR as graph
+import save_results as save
+import threshold as thresh
 
 '''
 GLOBAL VARS
@@ -30,7 +31,7 @@ df_videodata = pd.DataFrame(columns=column_name)
 def read_data(dataset_name):
     mypath = os.path.join(os.getcwd(), 'data_sets\\', dataset_name)
     for (dirpath, dirnames, filenames) in os.walk(mypath):
-        print(filenames)
+        #print(filenames)
         if not filenames:
             print("empty")
         if filenames:
@@ -94,16 +95,19 @@ def main():
         (detector, predictor, lStart, lEnd, rStart, rEnd) = vid.init_detector_predictor()
         (vs, fileStream) = vid.start_videostream(video_filename)
         EARs = vid.start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd, EYE_AR_THRESH)
-        pred_pairs = bfp.get_pred_blink_pairs(EARs, EYE_AR_THRESH)
+        #pred_pairs = bfp.get_pred_blink_pairs(EARs, EYE_AR_THRESH)
         gt_pairs = bfp.get_GT_blink_pairs(gt_blinks, 0.0, 0.3)
-        (FP, FN, TP) = evalu.IOU_eval(gt_pairs, pred_pairs)
-        recall = evalu.get_recall(TP, FN)
-        precision = evalu.get_precision(TP, FP)
+        '''
+        (TP, FP, FN) = evalu.IOU_eval(gt_pairs, pred_pairs)
+        recall = evalu.get_recall(len(TP), len(FN))
+        precision = evalu.get_precision(len(TP), len(FP))
         print(gt_pairs, pred_pairs, recall, precision)
-
+        '''
         # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
         folder = get_FOLDERNAME(i)
-        graph.graph_EAR_GT(EARs, gt_blinks, path, png_filename, folder)
+        (file_path, file) = save.check_path(path,folder)       
+        save.graph_EAR_GT(EARs, gt_blinks, png_filename, file_path, file)
+        thresh.compare_IOUs(EARs, gt_pairs, file_path, file)
         # do a bit of cleanup
         cv2.destroyAllWindows()
         vs.stop()
@@ -111,15 +115,20 @@ def main():
 
     '''
     path = ''
-    video_filename = '000001M_FBN.avi'
+    video_filename = '000001M_FBN.mp4'
     tag_filename = '000001M_FBN.tag'
     png_filename = '000001M_FBN.png'
     gt_blinks = get_GT_blinks(tag_filename)
-    (detector, predictor, lStart, lEnd, rStart, rEnd) = init_detector_predictor()
-    (vs, fileStream) = start_videostream(video_filename)
-    EARs = scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd)
+    (detector, predictor, lStart, lEnd, rStart, rEnd) = vid.init_detector_predictor()
+    (vs, fileStream) = vid.start_videostream(video_filename)
+    EARs = vid.start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd, EYE_AR_THRESH)
+    print("original ears: ")
+    for ear in EARs:
+        print(ear)
     # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
-    graph_EAR_GT(EARs, gt_blinks, path, png_filename)   
+    gt_pairs = bfp.get_GT_blink_pairs(gt_blinks, 0.0, 0.3)
+    thresh.compare_IOUs(EARs, gt_pairs)
+    graph.graph_EAR_GT(EARs, gt_blinks, path, png_filename)   
     print("finished graphing")     
     # do a bit of cleanup
     cv2.destroyAllWindows()
