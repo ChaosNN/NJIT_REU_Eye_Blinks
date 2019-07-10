@@ -16,3 +16,5 @@ blink-detection/000001M_FBN.mp4
 blink-detection/000002M_FNN.mp4
 blink-detection/blink_detection_demo.mp4
 *.mp4
+*.csv
+*.png
