@@ -11,3 +11,6 @@ blink-detection/datasets
 *.tag
 *.txt
 *.pyc
+*.mp4
+*.avi
+*.avi

@@ -61,6 +61,8 @@ def start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd,
     COUNTER = 0
     TOTAL = 0
     EARs = []
+    #frame = np.array()
+
     # loop over frames from the video stream
     while True:
         # if this is a file video stream, then we need to check if
@@ -70,10 +72,14 @@ def start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd,
             # grab the frame from the threaded video file stream, resize
         # it, and convert it to grayscale channels)
         frame = vs.read()
-        if np.shape(frame) != ():
-            frame = imutils.resize(frame, width=450)
-            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            # detect faces in the grayscale frame
+
+        if frame is None:
+            break
+
+        #if np.shape(frame) != ():
+        frame = imutils.resize(frame, width=450)
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        # detect faces in the grayscale frame
         rects = detector(gray, 0)
         # loop over the face detections
         for rect in rects:
