@@ -30,7 +30,6 @@ df_videodata = pd.DataFrame(columns=column_name)
 def read_data(dataset_name):
     mypath = os.path.join(os.getcwd(), 'data_sets\\', dataset_name)
     for (dirpath, dirnames, filenames) in os.walk(mypath):
-        print(filenames)
         if not filenames:
             print("empty")
         if filenames:
