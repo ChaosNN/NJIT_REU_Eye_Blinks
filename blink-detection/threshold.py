@@ -6,9 +6,10 @@ Created on Tue Jul  9 11:29:03 2019
 """
 import copy
 from statistics import mean 
+import statistics
 import blink_frame_pairs as bfp
 import IOU_eval as evalu
-
+import save_results as save
 
 '''
 find the average of the EAR distance between each pair of consecutive frames
@@ -43,7 +44,10 @@ def two_frame_gap_thresh(EARs, avg_dist, dists):
     low_EARs.sort()
     top_EARs = high_EARs[int(len(high_EARs) * .9) : int(len(high_EARs) * 1.0)]
     bottom_EARs = low_EARs[int(len(low_EARs) * 0.0) : int(len(low_EARs) * 0.1)]
-    threshold = mean([mean(top_EARs),mean(bottom_EARs)])
+    try:
+        threshold = mean([mean(top_EARs),mean(bottom_EARs)])
+    except statistics.StatisticsError:
+        threshold = mean([mean(high_EARs), mean(low_EARs)])
     return threshold
 
 def avg_thresh(EARs):
@@ -54,37 +58,54 @@ def avg_thresh(EARs):
     threshold = mean([mean(top_EARs),mean(bottom_EARs)])
     return threshold
 
-def compare_IOUs(EARs, gt_pairs):
+def compare_IOUs(EARs, gt_pairs, file_path, file):
     #print("in compare_IOUs of threshold.py")
     #print("gt pairs: ", gt_pairs)
-    avg_threshold = avg_thresh(EARs)
-    pred_pairs_avg = bfp.get_pred_blink_pairs(EARs, avg_threshold)
+    ga_t = avg_thresh(EARs)
+    pbp_gat = bfp.get_pred_blink_pairs(EARs, ga_t)
     #print("pred pairs w average threshold: ", pred_pairs_avg)
-    IOU_vals_avg_thresh = evalu.IOU_eval(gt_pairs, pred_pairs_avg)
+    (tp_gat, fp_gat, fn_gat, prec_gat, recall_gat) = evalu.IOU_eval(gt_pairs, pbp_gat)
+    
     (avg_dist, dists) = frame_to_frame_EAR_diff(EARs)
+    
+    tcf_t = two_frame_gap_thresh(EARs, avg_dist, dists)
+    pbp_tcft = bfp.get_pred_blink_pairs(EARs, tcf_t)
+    #print("pred pairs w two frame average threshold: ", pred_pairs_2frame)
+    (tp_tcft, fp_tcft, fn_tcft, prec_tcft, recall_tcft) = evalu.IOU_eval(gt_pairs, pbp_tcft)
+    
+    h2_t = 0.2
+    pbp_h2t = bfp.get_pred_blink_pairs(EARs, h2_t)
+    #print("pred pairs w .2 threshold: ", pbp_h2t)
+    (tp_h2t, fp_h2t, fn_h2t, prec_h2t, recall_h2t) = evalu.IOU_eval(gt_pairs, pbp_h2t)
+    
+    h25_t = 0.25
+    pbp_h25t = bfp.get_pred_blink_pairs(EARs, h25_t)
+    #print("pred pairs w .25 threshold: ", pbp_h25t)
+    (tp_h25t, fp_h25t, fn_h25t, prec_h25t, recall_h25t) = evalu.IOU_eval(gt_pairs, pbp_h25t)
+    
+    h3_t = 0.3
+    pbp_h3t = bfp.get_pred_blink_pairs(EARs, h3_t)
+    #print("pred pairs w .3 threshold: ", pbp_h3t)
+    (tp_h3t, fp_h3t, fn_h3t, prec_h3t, recall_h3t) = evalu.IOU_eval(gt_pairs, pbp_h3t)
+    
+    h35_t = 0.35
+    pbp_h35t = bfp.get_pred_blink_pairs(EARs, h35_t)
+    #print("pred pairs w .35 threshold: ", pbp_h35t)
+    (tp_h35t, fp_h35t, fn_h35t, prec_h35t, recall_h35t) = evalu.IOU_eval(gt_pairs, pbp_h35t)
     '''
-    thresh_2frame = two_frame_gap_thresh(EARs, avg_dist, dists)
-    pred_pairs_2frame = bfp.get_pred_blink_pairs(EARs, thresh_2frame)
-    print("pred pairs w two frame average threshold: ", pred_pairs_2frame)
-    IOU_vals_2frame = evalu.IOU_eval(gt_pairs, pred_pairs_2frame)
-    
-    pred_pairs_2 = bfp.get_pred_blink_pairs(EARs, .2)
-    print("pred pairs w .2 threshold: ", pred_pairs_2)
-    IOU_vals_2 = evalu.IOU_eval(gt_pairs, pred_pairs_2)
-    
-    pred_pairs_25 = bfp.get_pred_blink_pairs(EARs, .25)
-    print("pred pairs w .25 threshold: ", pred_pairs_25)
-    IOU_vals_25 = evalu.IOU_eval(gt_pairs, pred_pairs_25)
-    
-    pred_pairs_3 = bfp.get_pred_blink_pairs(EARs, .3)
-    print("pred pairs w .3 threshold: ", pred_pairs_3)
-    IOU_vals_3 = evalu.IOU_eval(gt_pairs, pred_pairs_3)
-    
-    pred_pairs_35 = bfp.get_pred_blink_pairs(EARs, .35)
-    print("pred pairs w .35 threshold: ", pred_pairs_35)
-    IOU_vals_35 = evalu.IOU_eval(gt_pairs, pred_pairs_35)
-    
-    #print(IOU_vals_avg_thresh, IOU_vals_2frame, IOU_vals_2, IOU_vals_25, IOU_vals_3, IOU_vals_35)
+    graph_EAR_GT(EARs, gt_blinks, png_filename, file_path, file)
+    graph_EAR_GT(EARs, gt_blinks, png_filename, file_path, file)
+    graph_EAR_GT(EARs, gt_blinks, png_filename, file_path, file)
+    graph_EAR_GT(EARs, gt_blinks, png_filename, file_path, file)
+    graph_EAR_GT(EARs, gt_blinks, png_filename, file_path, file)
     '''
+    save.save_csv(EARs, gt_pairs, 
+             ga_t, pbp_gat, tp_gat, fp_gat, fn_gat, prec_gat, recall_gat, 
+             tcf_t, pbp_tcft, tp_tcft, fp_tcft, fn_tcft, prec_tcft, recall_tcft, 
+             h2_t, pbp_h2t, tp_h2t, fp_h2t, fn_h2t, prec_h2t, recall_h2t, 
+             h25_t, pbp_h25t, tp_h25t, fp_h25t, fn_h25t, prec_h25t, recall_h25t, 
+             h3_t, pbp_h3t, tp_h3t, fp_h3t, fn_h3t, prec_h3t, recall_h3t, 
+             h35_t, pbp_h35t, tp_h35t, fp_h35t, fn_h35t, prec_h35t, recall_h35t, 
+             file_path, file)
     
     

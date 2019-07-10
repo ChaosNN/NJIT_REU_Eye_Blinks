@@ -10,10 +10,16 @@ Created on Wed Jul  3 14:25:36 2019
 import blink_frame_pairs as bfp
 
 def get_recall(TP, FN):
-    return TP/(TP + FN)
+    if TP + FN == 0:
+        return "NaN"
+    else:
+        return TP/(TP + FN)
     
 def get_precision(TP, FP):
-    return TP/(TP + FP)
+    if TP + FP == 0:
+        return "NaN"
+    else:
+        return TP/(TP + FP)
     
 def evaluate(EARs, gt_blinks, thresholds, EYE_AR_THRESH):
     results = []
@@ -42,6 +48,9 @@ def IOU_eval(GT_blinks, pred_blinks):
     TP_Counter = 0
     FP_Counter = 0
     FN_Counter = 0
+    TP = []
+    FP = []
+    FN = []
     while g_idx < len(GT_blinks) and p_idx < len(pred_blinks):
         
         GT_start_frame = GT_blinks[g_idx][0]
@@ -55,18 +64,22 @@ def IOU_eval(GT_blinks, pred_blinks):
         iou = GT_pred_intersect / GT_pred_union
         if iou > iou_threshold:
             TP_Counter += 1
+            TP.append(pred_blinks[p_idx])
             p_idx += 1
             g_idx += 1
         elif pred_end_frame < GT_end_frame:
             #print("this was a FP: ", pred_blinks[p_idx])
             FP_Counter += 1
+            FP.append(pred_blinks[p_idx])
             p_idx += 1
         else:
             #print("this was a FN: ", GT_blinks[g_idx])
             FN_Counter += 1
+            FN.append(GT_blinks[g_idx])
             g_idx += 1
     FP_Counter += len(pred_blinks) - p_idx
     FN_Counter += len(GT_blinks) - g_idx
     #print("FP, FN, TP: ", FP_Counter, FN_Counter, TP_Counter)
-    
-    return (FP_Counter, FN_Counter, TP_Counter)
+    precision = get_precision(TP_Counter, FP_Counter)
+    recall = get_recall(TP_Counter, FN_Counter)
+    return (TP, FP, FN, precision, recall)

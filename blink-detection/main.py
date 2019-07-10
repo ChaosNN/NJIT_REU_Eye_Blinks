@@ -95,18 +95,19 @@ def main():
         (detector, predictor, lStart, lEnd, rStart, rEnd) = vid.init_detector_predictor()
         (vs, fileStream) = vid.start_videostream(video_filename)
         EARs = vid.start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd, EYE_AR_THRESH)
-        pred_pairs = bfp.get_pred_blink_pairs(EARs, EYE_AR_THRESH)
+        #pred_pairs = bfp.get_pred_blink_pairs(EARs, EYE_AR_THRESH)
         gt_pairs = bfp.get_GT_blink_pairs(gt_blinks, 0.0, 0.3)
-        (FP, FN, TP) = evalu.IOU_eval(gt_pairs, pred_pairs)
-        recall = evalu.get_recall(TP, FN)
-        precision = evalu.get_precision(TP, FP)
+        '''
+        (TP, FP, FN) = evalu.IOU_eval(gt_pairs, pred_pairs)
+        recall = evalu.get_recall(len(TP), len(FN))
+        precision = evalu.get_precision(len(TP), len(FP))
         print(gt_pairs, pred_pairs, recall, precision)
-
+        '''
         # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
         folder = get_FOLDERNAME(i)
         (file_path, file) = save.check_path(path,folder)       
         save.graph_EAR_GT(EARs, gt_blinks, png_filename, file_path, file)
-        save.save_csv(EARs, gt_blinks, file_path, file)
+        thresh.compare_IOUs(EARs, gt_pairs, file_path, file)
         # do a bit of cleanup
         cv2.destroyAllWindows()
         vs.stop()
