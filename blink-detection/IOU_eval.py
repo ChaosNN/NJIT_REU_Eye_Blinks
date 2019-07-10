@@ -35,6 +35,7 @@ pred_blinks: array of pairs for the predicted blinks
 def IOU_eval(GT_blinks, pred_blinks):
     # intersect over union of ground truth vs prediction blink frames evaluation method
     # considered in A. Fogelton, W. Benesova's Computer Vision and Image Understanding (2016)
+    #print("in IOU_eval.py using these pred blinks", pred_blinks)
     iou_threshold = 0.2
     g_idx = 0
     p_idx = 0
@@ -57,13 +58,15 @@ def IOU_eval(GT_blinks, pred_blinks):
             p_idx += 1
             g_idx += 1
         elif pred_end_frame < GT_end_frame:
+            print("this was a FP: ", pred_blinks[p_idx])
             FP_Counter += 1
             p_idx += 1
         else:
+            print("this was a FN: ", GT_blinks[g_idx])
             FN_Counter += 1
             g_idx += 1
-    #print(FP_Counter, FN_Counter, TP_Counter)
     FP_Counter += len(pred_blinks) - p_idx
     FN_Counter += len(GT_blinks) - g_idx
+    print("FP, FN, TP: ", FP_Counter, FN_Counter, TP_Counter)
     
     return (FP_Counter, FN_Counter, TP_Counter)

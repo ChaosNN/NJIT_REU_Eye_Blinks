@@ -15,6 +15,7 @@ import IOU_eval as evalu
 import blink_frame_pairs as bfp
 import start_vid_analyzing as vid
 import graph_EAR as graph
+import threshold as thresh
 
 '''
 GLOBAL VARS
@@ -75,7 +76,7 @@ def get_GT_blinks(tag_filename):
     return blink_vals
 
 def main():
-    
+    '''
     read_data('zju')
     num_rows = df_videodata.shape[0]
 
@@ -105,21 +106,26 @@ def main():
 
     '''
     path = ''
-    video_filename = '000001M_FBN.avi'
+    video_filename = '000001M_FBN.mp4'
     tag_filename = '000001M_FBN.tag'
     png_filename = '000001M_FBN.png'
     gt_blinks = get_GT_blinks(tag_filename)
-    (detector, predictor, lStart, lEnd, rStart, rEnd) = init_detector_predictor()
-    (vs, fileStream) = start_videostream(video_filename)
-    EARs = scan_and_display_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd)
+    (detector, predictor, lStart, lEnd, rStart, rEnd) = vid.init_detector_predictor()
+    (vs, fileStream) = vid.start_videostream(video_filename)
+    EARs = vid.start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd, EYE_AR_THRESH)
+    print("original ears: ")
+    for ear in EARs:
+        print(ear)
     # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
-    graph_EAR_GT(EARs, gt_blinks, path, png_filename)   
+    gt_pairs = bfp.get_GT_blink_pairs(gt_blinks, 0.0, 0.3)
+    thresh.compare_IOUs(EARs, gt_pairs)
+    graph.graph_EAR_GT(EARs, gt_blinks, path, png_filename)   
     print("finished graphing")     
     # do a bit of cleanup
     cv2.destroyAllWindows()
     vs.stop()
     print("post cleanup")
-    '''
+    
 
 if __name__ == '__main__':
     main()
