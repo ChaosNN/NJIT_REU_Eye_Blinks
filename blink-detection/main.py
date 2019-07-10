@@ -31,7 +31,7 @@ df_videodata = pd.DataFrame(columns=column_name)
 def read_data(dataset_name):
     mypath = os.path.join(os.getcwd(), 'data_sets\\', dataset_name)
     for (dirpath, dirnames, filenames) in os.walk(mypath):
-        print(filenames)
+        #print(filenames)
         if not filenames:
             print("empty")
         if filenames:
@@ -81,7 +81,7 @@ def get_GT_blinks(tag_filename):
     return blink_vals
 
 def main():
-    '''
+    
     read_data('zju')
     num_rows = df_videodata.shape[0]
 
@@ -105,6 +105,7 @@ def main():
         # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
         folder = get_FOLDERNAME(i)
         graph.graph_EAR_GT(EARs, gt_blinks, path, png_filename, folder)
+        graph.save_csv(path, folder, EARs, gt_blinks)
         # do a bit of cleanup
         cv2.destroyAllWindows()
         vs.stop()
@@ -131,7 +132,7 @@ def main():
     cv2.destroyAllWindows()
     vs.stop()
     print("post cleanup")
-    
+    '''
 
 if __name__ == '__main__':
     main()

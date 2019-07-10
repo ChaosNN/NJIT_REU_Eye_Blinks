@@ -55,11 +55,11 @@ def avg_thresh(EARs):
     return threshold
 
 def compare_IOUs(EARs, gt_pairs):
-    print("in compare_IOUs of threshold.py")
-    print("gt pairs: ", gt_pairs)
+    #print("in compare_IOUs of threshold.py")
+    #print("gt pairs: ", gt_pairs)
     avg_threshold = avg_thresh(EARs)
     pred_pairs_avg = bfp.get_pred_blink_pairs(EARs, avg_threshold)
-    print("pred pairs w average threshold: ", pred_pairs_avg)
+    #print("pred pairs w average threshold: ", pred_pairs_avg)
     IOU_vals_avg_thresh = evalu.IOU_eval(gt_pairs, pred_pairs_avg)
     (avg_dist, dists) = frame_to_frame_EAR_diff(EARs)
     '''

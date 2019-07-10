@@ -19,16 +19,19 @@ def check_file(file_path):
     return os.path.isfile(file_path)
 
 # creates a data frame, which is saved as a csv file
-def save_csv(file_path, ear, blink):
+def save_csv(path, folder, ear, blink):
+    (file_path, file) = check_path(path,folder)       
     df = pd.DataFrame(ear, columns=['EAR'])
     df['Ground Truth'] = pd.Series(blink)
-    df.to_csv(file_path)
+    '''
+    df['Ground Truth'] = pd.Series(blink)
+    df['Ground Truth'] = pd.Series(blink)
+    df['Ground Truth'] = pd.Series(blink)
+    df['Ground Truth'] = pd.Series(blink)
+    '''
+    df.to_csv(os.path.join(file, file_path + '.csv'))
 
-def graph_EAR_GT(EARs, blink_vals, path, png_filename, folder):
-    plt.xlabel('Frame Number')
-    plt.ylabel('EAR')
-    plt.plot(EARs, 'b')
-    plt.plot(blink_vals, 'r')
+def check_path(path, folder):
     data_set = path.split('\\')
     data_set = data_set[len(data_set) - 2] + '_results'
     print(data_set)
@@ -36,17 +39,22 @@ def graph_EAR_GT(EARs, blink_vals, path, png_filename, folder):
     print(file)
     result = 'results' + folder
     print(os.path.join(file, result + '.csv'))
-
     try:
         check_dir(file)
         # check_file(file)
         check_file(path + '.csv')
         # os.path.exists(file)
-
     except IOError:
         print("File exists and will be overwritten")
-    finally:
-        save_csv(os.path.join(file, result + '.csv'), EARs, blink_vals)
-        plt.savefig(os.path.join(file, result + 'graph' + '.png'), bbox_inches='tight')
+    return (result, file)
+    
+   
+def graph_EAR_GT(EARs, gt_vals, path, png_filename, folder):
+    plt.xlabel('Frame Number')
+    plt.ylabel('EAR')
+    plt.plot(EARs, 'b')
+    plt.plot(gt_vals, 'r')
+    (result, file) = check_path(path,folder)       
+    plt.savefig(os.path.join(file, result + 'graph' + '.png'), bbox_inches='tight')
 
     plt.close()

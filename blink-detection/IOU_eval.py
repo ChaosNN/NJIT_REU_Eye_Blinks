@@ -58,15 +58,15 @@ def IOU_eval(GT_blinks, pred_blinks):
             p_idx += 1
             g_idx += 1
         elif pred_end_frame < GT_end_frame:
-            print("this was a FP: ", pred_blinks[p_idx])
+            #print("this was a FP: ", pred_blinks[p_idx])
             FP_Counter += 1
             p_idx += 1
         else:
-            print("this was a FN: ", GT_blinks[g_idx])
+            #print("this was a FN: ", GT_blinks[g_idx])
             FN_Counter += 1
             g_idx += 1
     FP_Counter += len(pred_blinks) - p_idx
     FN_Counter += len(GT_blinks) - g_idx
-    print("FP, FN, TP: ", FP_Counter, FN_Counter, TP_Counter)
+    #print("FP, FN, TP: ", FP_Counter, FN_Counter, TP_Counter)
     
     return (FP_Counter, FN_Counter, TP_Counter)
