@@ -19,8 +19,7 @@ def check_file(file_path):
     return os.path.isfile(file_path)
 
 # creates a data frame, which is saved as a csv file
-def save_csv(path, folder, ear, blink):
-    (file_path, file) = check_path(path,folder)       
+def save_csv(ear, blink, file_path, file):
     df = pd.DataFrame(ear, columns=['EAR'])
     df['Ground Truth'] = pd.Series(blink)
     '''
@@ -49,12 +48,10 @@ def check_path(path, folder):
     return (result, file)
     
    
-def graph_EAR_GT(EARs, gt_vals, path, png_filename, folder):
+def graph_EAR_GT(EARs, gt_vals, png_filename, file_path, file):
     plt.xlabel('Frame Number')
     plt.ylabel('EAR')
     plt.plot(EARs, 'b')
     plt.plot(gt_vals, 'r')
-    (result, file) = check_path(path,folder)       
-    plt.savefig(os.path.join(file, result + 'graph' + '.png'), bbox_inches='tight')
-
+    plt.savefig(os.path.join(file, file_path + 'graph' + '.png'), bbox_inches='tight')
     plt.close()

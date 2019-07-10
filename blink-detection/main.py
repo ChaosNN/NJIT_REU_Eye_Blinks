@@ -14,7 +14,7 @@ import os
 import IOU_eval as evalu
 import blink_frame_pairs as bfp
 import start_vid_analyzing as vid
-import graph_EAR as graph
+import save_results as save
 import threshold as thresh
 
 '''
@@ -104,8 +104,9 @@ def main():
 
         # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
         folder = get_FOLDERNAME(i)
-        graph.graph_EAR_GT(EARs, gt_blinks, path, png_filename, folder)
-        graph.save_csv(path, folder, EARs, gt_blinks)
+        (file_path, file) = save.check_path(path,folder)       
+        save.graph_EAR_GT(EARs, gt_blinks, png_filename, file_path, file)
+        save.save_csv(EARs, gt_blinks, file_path, file)
         # do a bit of cleanup
         cv2.destroyAllWindows()
         vs.stop()
