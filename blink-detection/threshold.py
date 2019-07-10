@@ -55,7 +55,10 @@ def avg_thresh(EARs):
     #EARs.sort()
     top_EARs = sortedEARS[int(len(sortedEARS) * .9) : int(len(sortedEARS) * 1.0)]
     bottom_EARs = sortedEARS[int(len(sortedEARS) * 0.0) : int(len(sortedEARS) * 0.1)]
-    threshold = mean([mean(top_EARs),mean(bottom_EARs)])
+    try:
+        threshold = mean([mean(top_EARs),mean(bottom_EARs)])
+    except statistics.StatisticsError:
+        threshold = mean(EARs)
     return threshold
 
 def compare_IOUs(EARs, gt_pairs, file_path, file):
