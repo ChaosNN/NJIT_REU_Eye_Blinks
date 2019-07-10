@@ -26,7 +26,7 @@ print(df.at[10, 'path'])
 #print(mypath)
 '''
 
-df_videodata = pd.DataFrame(columns=['video_file', 'dat_file', 'text_file', 'path', 'file_name', 'folder'])
+df_videodata = pd.DataFrame(columns=['video_file_avi', 'video_file_avi', 'dat_file', 'text_file', 'path', 'file_name', 'folder'])
 pd.set_option('display.max_columns', 6)
 
 
@@ -35,6 +35,7 @@ def read_data(dataset_name):
     mypath = os.path.join(os.getcwd(), 'data_sets\\', dataset_name)
     print(mypath)
     for (dirpath, dirnames, filenames) in os.walk(mypath):
+        print(filenames)
         if not filenames:
             print("empty")
             #print(filenames)
@@ -69,7 +70,7 @@ def read_data(dataset_name):
     return df_videodata
 
 
-print(read_data('zju'))
+print(read_data('zju_test'))
 #read_data('zju').to_csv()
 #print(df_videodata['file_name'] = df_videodata['video_file'])
 
@@ -94,5 +95,5 @@ print(check_dir(dirz))
 dirzz = 'C:\\Users\\peted\\Documents\\Git_Hub\\NJIT_REU_Eye_Blinks\\blink-detection\\data_sets\\zju_results\\1'
 print(check_dir(dirzz))
 print(save_csv(fileName))
-print(df_videodata.iloc[20]['path'])
-print('results' + df_videodata.iloc[20]['folder'])
+#print(df_videodata.iloc[20]['path'])
+#print('results' + df_videodata.iloc[20]['folder'])
