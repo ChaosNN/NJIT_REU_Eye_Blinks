@@ -55,7 +55,6 @@ def start_videostream(video_filename):
     time.sleep(1.0)
     return (vs, fileStream)
 
-
 def start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd, EYE_AR_THRESH):
     # initialize the frame counters and the total number of blinks
     COUNTER = 0
@@ -67,19 +66,18 @@ def start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd,
         # if this is a file video stream, then we need to check if
         # there any more frames left in the buffer to process
         if fileStream and not vs.more():
-            print("breaking in line 71")
             break
             # grab the frame from the threaded video file stream, resize
         # it, and convert it to grayscale channels)
         frame = vs.read()
-
-        if frame is None:
-            print("breaking in line 78")            
+        
+        if np.sum(frame) == 0:
+        #if frame is None:
             break
-
-        #if np.shape(frame) != ():
-        frame = imutils.resize(frame, width=450)
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        
+        if np.shape(frame) != ():
+            frame = imutils.resize(frame, width=450)
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         # detect faces in the grayscale frame
         rects = detector(gray, 0)
         # loop over the face detections
@@ -140,7 +138,7 @@ def start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd,
     return EARs
 
 '''
-def scan_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd):
+def scan_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd, EYE_AR_THRESH):
     # initialize the frame counters and the total number of blinks
     COUNTER = 0
     TOTAL = 0
