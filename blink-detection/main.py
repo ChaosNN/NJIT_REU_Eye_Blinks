@@ -87,6 +87,7 @@ def main():
 
     for i in range(num_rows):
         video_filename = get_VIDEO_FILENAME(i)
+        print(video_filename)
         tag_filename = get_TAG_FILENAME(i)
         png_filename = get_PNG_FILENAME(i)
         path = get_PATH(i)
@@ -105,6 +106,7 @@ def main():
         '''
         # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
         folder = get_FOLDERNAME(i)
+        print(folder)
         (file_path, file) = save.check_path(path,folder)       
         save.graph_EAR_GT(EARs, gt_blinks, png_filename, file_path, file)
         thresh.compare_IOUs(EARs, gt_pairs, file_path, file)
