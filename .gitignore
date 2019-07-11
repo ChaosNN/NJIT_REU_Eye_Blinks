@@ -16,3 +16,4 @@ blink-detection/datasets
 *.avi
 *.csv
 *.png
+.idea/workspace.xml

@@ -13,6 +13,7 @@ import imutils
 import time
 import dlib
 import cv2
+from datetime import datetime
 
 #  the number of consecutive
 # frames the eye must be below the threshold
@@ -47,12 +48,29 @@ def init_detector_predictor():
     return (detector, predictor, lStart, lEnd, rStart, rEnd)
 
 
+'''
+def get_current_time(start):
+    dt = datetime.now()
+    print(dt)
+    dt = dt - start
+    ms = (dt.days * 24 * 60 * 60 + dt.seconds) * 1000 + dt.microseconds / 1000.0
+    return ms
+'''
+
 def start_videostream(video_filename):
     # start the video stream thread
     #print("[INFO] starting video stream thread...")
+    cap = cv2.VideoCapture(video_filename)
+    fps = cap.get(cv2.CAP_PROP_FRAME_COUNT)
+    print("CV2 frame count: ", fps)
     vs = FileVideoStream(video_filename).start()
     fileStream = True
     time.sleep(1.0)
+    '''
+    start_time = datetime.now()
+    print(start_time)
+    print(get_current_time(start_time))
+    '''
     return (vs, fileStream)
 
 def start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd, EYE_AR_THRESH):
@@ -66,13 +84,14 @@ def start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd,
         # if this is a file video stream, then we need to check if
         # there any more frames left in the buffer to process
         if fileStream and not vs.more():
+            #print("breaking in line 71")
             break
             # grab the frame from the threaded video file stream, resize
         # it, and convert it to grayscale channels)
         frame = vs.read()
-        
-        if np.sum(frame) == 0:
-        #if frame is None:
+
+        if frame is None:
+            #print("breaking in line 78")
             break
         
         if np.shape(frame) != ():

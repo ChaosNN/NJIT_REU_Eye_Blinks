@@ -89,6 +89,7 @@ def main():
 
     for i in range(num_rows):
         video_filename = get_VIDEO_FILENAME(i)
+        print(video_filename)
         tag_filename = get_TAG_FILENAME(i)
         png_filename = get_PNG_FILENAME(i)
         folder = get_FOLDERNAME(i)
