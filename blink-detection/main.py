@@ -73,7 +73,9 @@ def get_GT_blinks(tag_filename):
     # find the number of headerlines to be skipped (varies file to file)
     searchfile = open(mypath, "r")
     for i, line in enumerate(searchfile):
-        if "#start" in line: rows_to_skip = i + 1
+        if "#start" in line: 
+            rows_to_skip = i + 1
+            #print("rows_to_skip: ", rows_to_skip)
     searchfile.close()
     df = pd.read_csv(mypath, skiprows= rows_to_skip, sep=':', header=None, skipinitialspace=True)
     blink_vals = (df.iloc[:, 1]).replace(-1, 0)
@@ -89,25 +91,31 @@ def main():
         video_filename = get_VIDEO_FILENAME(i)
         tag_filename = get_TAG_FILENAME(i)
         png_filename = get_PNG_FILENAME(i)
+        folder = get_FOLDERNAME(i)
         path = get_PATH(i)
+        print("folder name: ", folder)
         video_filename = os.path.join(path, video_filename)
         gt_blinks = get_GT_blinks(tag_filename)
         (detector, predictor, lStart, lEnd, rStart, rEnd) = vid.init_detector_predictor()
         (vs, fileStream) = vid.start_videostream(video_filename)
+        print("fileStream = ", fileStream)
         EARs = vid.start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd, EYE_AR_THRESH)
+        print("gt frame count: ", len(gt_blinks))
+        print("pred frame count: ", len(EARs))
         #pred_pairs = bfp.get_pred_blink_pairs(EARs, EYE_AR_THRESH)
-        gt_pairs = bfp.get_GT_blink_pairs(gt_blinks, 0.0, 0.3)
         '''
+        gt_pairs = bfp.get_GT_blink_pairs(gt_blinks, 0.0, 0.3)
         (TP, FP, FN) = evalu.IOU_eval(gt_pairs, pred_pairs)
         recall = evalu.get_recall(len(TP), len(FN))
         precision = evalu.get_precision(len(TP), len(FP))
         print(gt_pairs, pred_pairs, recall, precision)
         '''
         # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
-        folder = get_FOLDERNAME(i)
+        '''
         (file_path, file) = save.check_path(path,folder)       
         save.graph_EAR_GT(EARs, gt_blinks, png_filename, file_path, file)
         thresh.compare_IOUs(EARs, gt_pairs, file_path, file)
+        '''
         # do a bit of cleanup
         cv2.destroyAllWindows()
         vs.stop()
