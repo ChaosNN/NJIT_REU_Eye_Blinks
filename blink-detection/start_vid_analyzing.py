@@ -60,6 +60,9 @@ def get_current_time(start):
 def start_videostream(video_filename):
     # start the video stream thread
     #print("[INFO] starting video stream thread...")
+    cap = cv2.VideoCapture(video_filename)
+    fps = cap.get(cv2.CAP_PROP_FRAME_COUNT)
+    print("CV2 frame count: ", fps)
     vs = FileVideoStream(video_filename).start()
     fileStream = True
     time.sleep(1.0)
@@ -82,14 +85,14 @@ def start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd,
         # if this is a file video stream, then we need to check if
         # there any more frames left in the buffer to process
         if fileStream and not vs.more():
-            print("breaking in line 71")
+            #print("breaking in line 71")
             break
             # grab the frame from the threaded video file stream, resize
         # it, and convert it to grayscale channels)
         frame = vs.read()
 
         if frame is None:
-            print("breaking in line 78")            
+            #print("breaking in line 78")
             break
 
         #if np.shape(frame) != ():
