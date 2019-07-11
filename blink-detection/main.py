@@ -101,6 +101,8 @@ def main():
         print("fileStream = ", fileStream)
         EARs = vid.start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd, EYE_AR_THRESH)
         print("gt frame count: ", len(gt_blinks))
+        for gt in gt_blinks:
+            print(gt)
         print("pred frame count: ", len(EARs))
         #pred_pairs = bfp.get_pred_blink_pairs(EARs, EYE_AR_THRESH)
         '''
