@@ -28,6 +28,7 @@ def save_csv(ear, gt,
              h35_t, pbp_h35t, tp_h35t, fp_h35t, fn_h35t, prec_h35t, recall_h35t, 
              file_path, file):
     df = pd.DataFrame(ear, columns=['EAR'])
+    df['Ground Truth'] = pd.Series(gt) 
     
     df['Gen. Avg. Thresh'] = pd.Series(ga_t)    
     df['Predicted Blink Pairs with Gen. Avg. Thresh'] = pd.Series(pbp_gat)

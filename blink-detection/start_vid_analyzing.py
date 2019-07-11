@@ -38,7 +38,7 @@ def eye_aspect_ratio(eye):
 def init_detector_predictor():
     # initialize dlib's face detector (HOG-based) and then create
     # the facial landmark predictor
-    print("[INFO] loading facial landmark predictor...")
+    #print("[INFO] loading facial landmark predictor...")
     detector = dlib.get_frontal_face_detector()
     predictor = dlib.shape_predictor(SHAPE_PREDICTOR_FILENAME)
     # grab the indexes of the facial landmarks for the left and
@@ -59,7 +59,7 @@ def get_current_time(start):
 
 def start_videostream(video_filename):
     # start the video stream thread
-    print("[INFO] starting video stream thread...")
+    #print("[INFO] starting video stream thread...")
     vs = FileVideoStream(video_filename).start()
     fileStream = True
     time.sleep(1.0)
@@ -76,18 +76,20 @@ def start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd,
     COUNTER = 0
     TOTAL = 0
     EARs = []
-
+    #frame = np.array()
     # loop over frames from the video stream
     while True:
         # if this is a file video stream, then we need to check if
         # there any more frames left in the buffer to process
         if fileStream and not vs.more():
+            print("breaking in line 71")
             break
             # grab the frame from the threaded video file stream, resize
         # it, and convert it to grayscale channels)
         frame = vs.read()
 
         if frame is None:
+            print("breaking in line 78")            
             break
 
         #if np.shape(frame) != ():
@@ -147,6 +149,7 @@ def start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd,
 
         # if the `q` key was pressed, break from the loop
         if key == ord("q"):
+            print("breaking in line 138")
             break
 
     return EARs
