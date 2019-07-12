@@ -6,6 +6,7 @@ Created on Wed Jul  3 14:25:36 2019
 """
 # USAGE
 # python IOU_eval.py
+# import the necessary packages
 
 import blink_frame_pairs as bfp
 

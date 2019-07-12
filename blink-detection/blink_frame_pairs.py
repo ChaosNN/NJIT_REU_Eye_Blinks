@@ -55,7 +55,8 @@ def get_pred_blink_pairs(pred_blink_vals, EAR_threshold):
             start_frame = frame_idx + 1 # +1 to account for 0 indexing
         elif prev <= EAR_threshold and blink_val > EAR_threshold:
             end_frame = frame_idx 
-            pred_blink_pairs.append([start_frame, end_frame])
+            if end_frame-start_frame > 3:
+                pred_blink_pairs.append([start_frame, end_frame])
             start_frame = 0
             end_frame = 0
         prev = blink_val
