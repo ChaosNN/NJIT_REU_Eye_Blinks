@@ -17,3 +17,10 @@ blink-detection/datasets
 *.csv
 *.png
 .idea/workspace.xml
+blink-detection/data_sets/zju_results/1/results1.csv
+blink-detection/data_sets/zju_results/1/results1.csv
+blink-detection/data_sets/zju_results/1/results1graph.png
+blink-detection/data_sets/zju_results/10/results10.csv
+blink-detection/data_sets/zju_results/10/results10graph.png
+blink-detection/data_sets/zju_results/11/results11.csv
+blink-detection/data_sets/zju_results/11/results11graph.png
