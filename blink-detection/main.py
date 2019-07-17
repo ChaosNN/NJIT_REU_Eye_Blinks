@@ -112,11 +112,11 @@ def main():
         print(gt_pairs, pred_pairs, recall, precision)
         '''
         # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
-        '''
+
         (file_path, file) = save.check_path(path,folder)       
         save.graph_EAR_GT(EARs, gt_blinks, png_filename, file_path, file)
-        thresh.compare_IOUs(EARs, gt_pairs, file_path, file)
-        '''
+        #thresh.compare_IOUs(EARs, gt_pairs, file_path, file)
+
         # do a bit of cleanup
         cv2.destroyAllWindows()
         vs.stop()

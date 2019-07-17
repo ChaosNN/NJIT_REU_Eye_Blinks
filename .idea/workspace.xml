@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f613655a-4b7d-45aa-b3fc-e84bdb8cc994" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/blink-detection/GUI_video_sidebyside.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blink-detection/create_Tag_file.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blink-detection/GUI_driver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blink-detection/GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/GUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju_results/1/results1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju_results/1/results1graph.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju_results/10/results10.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju_results/10/results10graph.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju_results/11/results11.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blink-detection/data_sets/zju_results/11/results11graph.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blink-detection/create_Tag_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/create_Tag_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blink-detection/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/blink-detection/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,10 +24,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blink-detection/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1759">
-              <caret line="115" column="20" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="20" />
+            <state relative-caret-position="2080">
+              <caret line="119" column="29" selection-start-line="119" selection-start-column="29" selection-end-line="119" selection-end-column="29" />
               <folding>
                 <element signature="e#156#166#0" expanded="true" />
+                <element signature="e#663#1281#0" />
               </folding>
             </state>
           </provider>
@@ -46,21 +44,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blink-detection/start_vid_analyzing.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
-              <folding>
-                <element signature="e#86#128#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blink-detection/save_results.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="1540">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
               <folding>
                 <element signature="e#86#95#0" expanded="true" />
               </folding>
@@ -71,12 +58,58 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blink-detection/GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="317" selection-start-line="317" selection-end-line="317" />
+            <state relative-caret-position="820">
+              <caret line="54" column="6" selection-start-line="54" selection-end-line="54" selection-end-column="18" />
               <folding>
-                <element signature="e#5451#8907#1" />
+                <element signature="e#76#406#1" />
                 <element signature="e#8909#8929#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/blink-detection/openCV_Test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="255" column="2" selection-start-line="255" selection-start-column="2" selection-end-line="255" selection-end-column="2" />
+              <folding>
+                <element signature="e#0#4201#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blink-detection/GUI_driver.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="6" column="94" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="98" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blink-detection/GUI_video_sidebyside.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1920">
+              <caret line="106" selection-start-line="106" selection-end-line="106" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#987#1506#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blink-detection/tag_file_reader.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -84,8 +117,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blink-detection/create_Tag_file.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="17" column="73" selection-start-line="17" selection-start-column="73" selection-end-line="17" selection-end-column="73" />
+            <state relative-caret-position="20">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -96,7 +129,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blink-detection/video.tag">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9" />
+            <state>
+              <caret column="3" selection-start-column="3" selection-end-column="3" />
+            </state>
           </provider>
         </entry>
       </file>
@@ -118,6 +153,7 @@
       <find>graph_EAR_GT</find>
       <find>gray</find>
       <find>print</find>
+      <find>ch</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -134,19 +170,22 @@
         <option value="$PROJECT_DIR$/blink-detection/test.py" />
         <option value="$PROJECT_DIR$/blink-detection/blink_frame_pairs.py" />
         <option value="$PROJECT_DIR$/blink-detection/threshold.py" />
-        <option value="$PROJECT_DIR$/blink-detection/main.py" />
         <option value="$PROJECT_DIR$/blink-detection/start_vid_analyzing.py" />
         <option value="$PROJECT_DIR$/blink-detection/GUI_video_sidebyside.py" />
-        <option value="$PROJECT_DIR$/blink-detection/GUI.py" />
+        <option value="$PROJECT_DIR$/blink-detection/main.py" />
+        <option value="$PROJECT_DIR$/blink-detection/save_results.py" />
         <option value="$PROJECT_DIR$/blink-detection/video.tag" />
         <option value="$PROJECT_DIR$/blink-detection/create_Tag_file.py" />
+        <option value="$PROJECT_DIR$/blink-detection/GUI.py" />
+        <option value="$PROJECT_DIR$/blink-detection/GUI_driver.py" />
+        <option value="$PROJECT_DIR$/blink-detection/openCV_Test.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-9" />
-    <option name="width" value="978" />
-    <option name="height" value="1039" />
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
     <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
@@ -165,12 +204,6 @@
               <item name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="blink-detection" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
-            <path>
-              <item name="NJIT_REU_Eye_Blinks" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="blink-detection" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="data_sets" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -181,18 +214,19 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/blink-detection" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/blink-detection/old bad work" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks\blink-detection" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks\blink-detection\old bad work" />
       <recent name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks\blink-detection" />
       <recent name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks\blink-detection\data_sets\zju_test\10" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks\blink-detection" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -207,7 +241,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.create_Tag_file">
+  <component name="RunManager" selected="Python.openCV_Test">
     <configuration name="GUI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="NJIT_REU_Eye_Blinks" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -222,6 +256,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/blink-detection/GUI.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GUI_driver" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="NJIT_REU_Eye_Blinks" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/blink-detection" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/blink-detection/GUI_driver.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -274,7 +330,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="start_vid_analyzing" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="openCV_Test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="NJIT_REU_Eye_Blinks" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -287,29 +343,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/blink-detection/start_vid_analyzing.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="NJIT_REU_Eye_Blinks" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/blink-detection" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/blink-detection/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/blink-detection/openCV_Test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -320,11 +354,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.create_Tag_file" />
+        <item itemvalue="Python.openCV_Test" />
+        <item itemvalue="Python.GUI_driver" />
         <item itemvalue="Python.GUI" />
         <item itemvalue="Python.GUI_video_sidebyside" />
-        <item itemvalue="Python.start_vid_analyzing" />
-        <item itemvalue="Python.test" />
+        <item itemvalue="Python.create_Tag_file" />
       </list>
     </recent_temporary>
   </component>
@@ -358,11 +392,13 @@
       <workItem from="1562805060147" duration="25697000" />
       <workItem from="1563210148559" duration="1267000" />
       <workItem from="1563211577997" duration="6190000" />
+      <workItem from="1563299586271" duration="19371000" />
+      <workItem from="1563374597241" duration="5089000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114566000" />
+    <option name="totallyTimeSpent" value="139026000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -374,15 +410,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8488121" visible="true" weight="0.29155496" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8488121" weight="0.4725201" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.15118791" side_tool="true" weight="0.12734585" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.34512022" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.18597998" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37765205" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3946252" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32956153" />
@@ -390,8 +427,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32956153" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.31683168" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32904148" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.31683168" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3281471" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -401,7 +438,7 @@
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8488121" visible="true" weight="0.12734585" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" sideWeight="0.15118791" side_tool="true" visible="true" weight="0.12734585" />
+      <window_info id="Favorites" order="2" sideWeight="0.15118791" side_tool="true" weight="0.12734585" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34512022" />
@@ -434,17 +471,26 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$create_Tag_file.coverage" NAME="create_Tag_file Coverage Results" MODIFIED="1563212094027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
+    <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$create_Tag_file.coverage" NAME="create_Tag_file Coverage Results" MODIFIED="1563321549274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
+    <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$openCV_Test.coverage" NAME="openCV_Test Coverage Results" MODIFIED="1563381037059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
     <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$read_data.coverage" NAME="read_data Coverage Results" MODIFIED="1562731478535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
     <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$noargs_multigraph.coverage" NAME="noargs_multigraph Coverage Results" MODIFIED="1562700722503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
     <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$test.coverage" NAME="test Coverage Results" MODIFIED="1562787876037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
     <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$start_vid_analyzing.coverage" NAME="start_vid_analyzing Coverage Results" MODIFIED="1562787899556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
-    <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$GUI_video_sidebyside.coverage" NAME="GUI_video_sidebyside Coverage Results" MODIFIED="1563032424691" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
+    <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$GUI_video_sidebyside.coverage" NAME="GUI_video_sidebyside Coverage Results" MODIFIED="1563323359784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
     <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$graph_retry.coverage" NAME="graph_retry Coverage Results" MODIFIED="1561991782704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
-    <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$GUI.coverage" NAME="GUI Coverage Results" MODIFIED="1563194652435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
+    <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$GUI.coverage" NAME="GUI Coverage Results" MODIFIED="1563323937238" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
+    <SUITE FILE_PATH="coverage/NJIT_REU_Eye_Blinks$GUI_driver.coverage" NAME="GUI_driver Coverage Results" MODIFIED="1563331429088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blink-detection" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/blink-detection/person2.tag" />
@@ -477,9 +523,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_results/1/results1.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_results/1/results1.csv" />
     <entry file="file://C:/Python37/Lib/site-packages/pandas/core/indexing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -501,9 +545,7 @@
     <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/2/results2graph.png" />
     <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/1/results1graph.png" />
     <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_test_results/10/results10graph.png" />
-    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_results/11/results11graph.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_results/11/results11graph.png" />
     <entry file="file://$PROJECT_DIR$/blink-detection/graph_EAR.py" />
     <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju/11/000003M_FTN.tag">
       <provider selected="true" editor-type-id="text-editor">
@@ -516,18 +558,7 @@
     <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju/10/000003M_FNN.tag">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/tag_file_reader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_results/80/results80.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_results/80/results80.csv" />
     <entry file="file://$PROJECT_DIR$/blink-detection/IOU_eval.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1241">
@@ -540,9 +571,7 @@
         <state relative-caret-position="-1994" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_results/80/results80graph.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_results/80/results80graph.png" />
     <entry file="file://C:/Python37/Lib/site-packages/PIL/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -557,52 +586,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/GUI_video_sidebyside.py">
+    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_results/1/results1graph.png" />
+    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_results/2/results2.csv" />
+    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_results/2/results2graph.png" />
+    <entry file="file://$PROJECT_DIR$/blink-detection/start_vid_analyzing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="16" column="73" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="73" />
+        <state relative-caret-position="1280">
+          <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <element signature="e#987#1506#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/GUI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="317" selection-start-line="317" selection-end-line="317" />
-          <folding>
-            <element signature="e#5451#8907#1" />
-            <element signature="e#8909#8929#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_results/1/results1graph.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/video.tag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/create_Tag_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="73" selection-start-line="17" selection-start-column="73" selection-end-line="17" selection-end-column="73" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#86#128#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blink-detection/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1759">
-          <caret line="115" column="20" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="20" />
+        <state relative-caret-position="2080">
+          <caret line="119" column="29" selection-start-line="119" selection-start-column="29" selection-end-line="119" selection-end-column="29" />
           <folding>
             <element signature="e#156#166#0" expanded="true" />
+            <element signature="e#663#1281#0" />
           </folding>
         </state>
       </provider>
@@ -614,27 +617,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/start_vid_analyzing.py">
+    <entry file="file://$PROJECT_DIR$/blink-detection/save_results.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+        <state relative-caret-position="1540">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
           <folding>
-            <element signature="e#86#128#0" expanded="true" />
+            <element signature="e#86#95#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_results/2/results2.csv">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/blink-detection/GUI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="820">
+          <caret line="54" column="6" selection-start-line="54" selection-end-line="54" selection-end-column="18" />
+          <folding>
+            <element signature="e#76#406#1" />
+            <element signature="e#8909#8929#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/data_sets/zju_results/2/results2graph.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/blink-detection/GUI_driver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="6" column="94" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="98" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blink-detection/save_results.py">
+    <entry file="file://$PROJECT_DIR$/blink-detection/GUI_video_sidebyside.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1920">
+          <caret line="106" selection-start-line="106" selection-end-line="106" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#987#1506#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blink-detection/tag_file_reader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blink-detection/create_Tag_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blink-detection/video.tag">
       <provider selected="true" editor-type-id="text-editor">
         <state>
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blink-detection/openCV_Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="255" column="2" selection-start-line="255" selection-start-column="2" selection-end-line="255" selection-end-column="2" />
           <folding>
-            <element signature="e#86#95#0" expanded="true" />
+            <element signature="e#0#4201#1" />
           </folding>
         </state>
       </provider>

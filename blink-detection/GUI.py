@@ -291,6 +291,24 @@ import PIL.Image
 import PIL.ImageTk
 import cv2
 
+video_source = "000001M_FBN.mp4"
+
+cap = cv2.VideoCapture(video_source)
+
+while(cap.isOpened()):
+    ret, frame = cap.read()
+
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    cv2.imshow('frame',gray)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
+
+
+'''
 LARGE_FONT = ("Verdana", 12)
 
 #C:\Users\peted\Documents\Git_Hub\NJIT_REU_Eye_Blinks\blink-detection\000001M_FBN.mp4
@@ -299,7 +317,7 @@ LARGE_FONT = ("Verdana", 12)
 class SeaofBTCapp(tk.Tk):
 
     def __init__(self, *args, **kwargs):
-        video_source1 = "000001M_FBN.mp4"
+        video_source1 = "C:\\Users\\peted\\Documents\\Git_Hub\\NJIT_REU_Eye_Blinks\\blink-detection\\000001M_FBN.mp4"
         tk.Tk.__init__(self, *args, **kwargs)
 
         # open video source
@@ -315,6 +333,7 @@ class SeaofBTCapp(tk.Tk):
         self.frames = {}
 
         frame = StartPage(container, self)
+        print(container, self)
         frame0 = DisplayVideo(container, self)
         frame1 = DisplayGraph(container, self)
 
@@ -422,3 +441,4 @@ class DisplayGraph(tk.Frame):
 
 app = SeaofBTCapp()
 app.mainloop()
+'''
