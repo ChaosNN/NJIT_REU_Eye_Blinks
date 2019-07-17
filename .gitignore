@@ -7,7 +7,8 @@ blink-detection.zip
 blink-detection/RN
 blink-detection/blink-detection/blink_detection_corrected.zip
 Datasets
-blink-detection/datasets/*
+blink-detection/datasets/*/
+blink_detection/datasets
 *.avi
 *.tag
 *.txt
