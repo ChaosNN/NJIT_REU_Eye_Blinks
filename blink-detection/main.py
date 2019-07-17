@@ -99,17 +99,9 @@ def main():
         gt_blinks = get_GT_blinks(tag_filename)
         (detector, predictor, lStart, lEnd, rStart, rEnd) = vid.init_detector_predictor()
         (vs, fileStream) = vid.start_videostream(video_filename)
-        print("fileStream = ", fileStream)
-        EARs = vid.start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd, EYE_AR_THRESH)
+        #print("fileStream = ", fileStream)
+        EARs = vid.better_start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd, EYE_AR_THRESH)
         print("gt frame count: ", len(gt_blinks))
-        print("pred frame count: ", len(EARs))
-        #pred_pairs = bfp.get_pred_blink_pairs(EARs, EYE_AR_THRESH)
-        '''
-        gt_pairs = bfp.get_GT_blink_pairs(gt_blinks, 0.0, 0.3)
-        (TP, FP, FN) = evalu.IOU_eval(gt_pairs, pred_pairs)
-        recall = evalu.get_recall(len(TP), len(FN))
-        precision = evalu.get_precision(len(TP), len(FP))
-        print(gt_pairs, pred_pairs, recall, precision)
         '''
         # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
 

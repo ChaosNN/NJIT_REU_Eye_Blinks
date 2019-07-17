@@ -4,16 +4,18 @@ Dilawar Algs
 DJango Practice
 blink-detection/blink-detection/blink_detection_demo.mp4
 blink-detection.zip
+blink-detection/RN
 blink-detection/blink-detection/blink_detection_corrected.zip
 Datasets
-blink-detection/datasets
+blink-detection/datasets/*/
+blink_detection/datasets
+blink-detection\datasets\*
+blink_detection\datasets
 *.avi
 *.tag
 *.txt
 *.pyc
 *.mp4
-*.avi
-*.avi
 *.csv
 *.png
 .idea/workspace.xml

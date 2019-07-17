@@ -55,7 +55,8 @@ def get_pred_blink_pairs(pred_blink_vals, EAR_threshold):
             start_frame = frame_idx + 1 # +1 to account for 0 indexing
         elif prev <= EAR_threshold and blink_val > EAR_threshold:
             end_frame = frame_idx 
-            pred_blink_pairs.append([start_frame, end_frame])
+            if end_frame-start_frame > 3:
+                pred_blink_pairs.append([start_frame, end_frame])
             start_frame = 0
             end_frame = 0
         prev = blink_val
@@ -63,3 +64,14 @@ def get_pred_blink_pairs(pred_blink_vals, EAR_threshold):
         pred_blink_pairs.append([start_frame, len(pred_blink_vals)])
     #print("These are the predicted blink pairs: ", pred_blink_pairs)
     return pred_blink_pairs
+
+def get_blink(blink_pairs, total_frames):
+    bool_blinks = []
+    prev_blink = [0,0]
+    for blink in blink_pairs:
+        bool_blinks.append([0] * (blink[0] - prev_blink[1]))
+        bool_blinks.append([1] * (blink[1] - blink[0]))
+        prev_blink = blink
+    bool_blinks.append([0] * (total_frames - prev_blink[1]))
+    flat_blinks = [blink for blinks in bool_blinks for blink in blinks]
+    return flat_blinks
