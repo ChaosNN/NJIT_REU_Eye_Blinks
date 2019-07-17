@@ -13,7 +13,14 @@ blink-detection/datasets
 *.txt
 *.pyc
 *.mp4
-*.avi
-*.avi
 *.csv
 *.png
+.idea/workspace.xml
+*.togLFP
+*.togL
+*.togR
+*.togRFP
+*.togLFN
+*.togRFN
+*.tag_autosave
+
