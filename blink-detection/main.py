@@ -77,14 +77,14 @@ def get_GT_blinks(tag_filename):
             rows_to_skip = i + 1
             #print("rows_to_skip: ", rows_to_skip)
     searchfile.close()
-    df = pd.read_csv(mypath, skiprows= rows_to_skip, sep='\t', header=None, skipinitialspace=True)
+    df = pd.read_csv(mypath, skiprows= rows_to_skip, sep=':', header=None, skipinitialspace=True)
     blink_vals = (df.iloc[:, 1]).replace(-1, 0)
     blink_vals = (blink_vals).mask(blink_vals > 0, EYE_AR_THRESH)
     return blink_vals
 
 def main():
     
-    read_data('eyeblink8')
+    read_data('zju')
     num_rows = df_videodata.shape[0]
 
     for i in range(num_rows):
@@ -114,7 +114,7 @@ def main():
         
         (file_path, file) = save.check_path(path,folder)       
         save.graph_EAR_GT(EARs, gt_blinks, png_filename, file_path, file)
-        thresh.compare_IOUs(EARs, gt_pairs, file_path, file)
+        thresh.compare_IOUs(EARs, gt_blinks, gt_pairs, file_path, file)
         
         # do a bit of cleanup
         cv2.destroyAllWindows()

@@ -17,3 +17,17 @@ blink-detection/datasets
 *.csv
 *.png
 .idea/workspace.xml
+*.csv
+*.png
+*.png
+*.csv
+*.togLFP
+blink-detection/RN/RN/train/rn30/2/26092014_175010_cam.togL
+*.togL
+*.togR
+*.togRFP
+*.togLFN
+*.togRFN
+*.tag_autosave
+*.csv
+*.csv
