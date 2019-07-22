@@ -251,6 +251,3 @@ while cap.isOpened():
     k = cv2.waitKey(10) & 0xff
     if k==27:
         break
-
-
-3 

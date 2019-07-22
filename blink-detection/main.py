@@ -102,7 +102,7 @@ def main():
         #print("fileStream = ", fileStream)
         EARs = vid.better_start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd, EYE_AR_THRESH)
         print("gt frame count: ", len(gt_blinks))
-        '''
+
         # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
 
         (file_path, file) = save.check_path(path,folder)       
