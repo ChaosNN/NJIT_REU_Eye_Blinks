@@ -11,8 +11,8 @@ Created on Mon Jul  1 10:45:29 2019
 import cv2
 import pandas as pd
 import os
-import IOU_eval as evalu
-import blink_frame_pairs as bfp
+#import IOU_eval as evalu
+#import blink_frame_pairs as bfp
 import start_vid_analyzing as vid
 import save_results as save
 import threshold as thresh
@@ -65,23 +65,6 @@ def get_FOLDERNAME(i):
     return df_videodata.at[i, 'folder']
 
 
-def get_GT_blinks(tag_filename):
-    # the first and second columns store the frame # and the blink value
-    # -1 = no blink, all other numbers tell which blink you're on (e.g. 1,2,3,...)
-    mypath = os.path.join(os.getcwd(), 'data_sets\\', tag_filename)
-    rows_to_skip = 0
-    # find the number of headerlines to be skipped (varies file to file)
-    searchfile = open(mypath, "r")
-    for i, line in enumerate(searchfile):
-        if "#start" in line: 
-            rows_to_skip = i + 1
-            #print("rows_to_skip: ", rows_to_skip)
-    searchfile.close()
-    df = pd.read_csv(mypath, skiprows= rows_to_skip, sep=':', header=None, skipinitialspace=True)
-    blink_vals = (df.iloc[:, 1]).replace(-1, 0)
-    blink_vals = (blink_vals).mask(blink_vals > 0, EYE_AR_THRESH)
-    return blink_vals
-
 def main():
     
     read_data('zju')
@@ -90,52 +73,23 @@ def main():
     for i in range(num_rows):
         video_filename = get_VIDEO_FILENAME(i)
         print(video_filename)
-        tag_filename = get_TAG_FILENAME(i)
         png_filename = get_PNG_FILENAME(i)
         folder = get_FOLDERNAME(i)
         path = get_PATH(i)
         print("folder name: ", folder)
         video_filename = os.path.join(path, video_filename)
-        gt_blinks = get_GT_blinks(tag_filename)
         (detector, predictor, lStart, lEnd, rStart, rEnd) = vid.init_detector_predictor()
         (vs, fileStream) = vid.start_videostream(video_filename)
-        #print("fileStream = ", fileStream)
         EARs = vid.better_start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd, EYE_AR_THRESH)
-        print("gt frame count: ", len(gt_blinks))
 
-        # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
-
-        (file_path, file) = save.check_path(path,folder)       
-        save.graph_EAR_GT(EARs, gt_blinks, png_filename, file_path, file)
-        #thresh.compare_IOUs(EARs, gt_pairs, file_path, file)
+        (file_path, file) = save.check_path(path, folder)
+        save.graph_EAR(EARs, png_filename, file_path, file)
+        thresh.compare_IOUs(EARs, file_path, file)
 
         # do a bit of cleanup
         cv2.destroyAllWindows()
         vs.stop()
-        
 
-    '''
-    path = ''
-    video_filename = '000001M_FBN.mp4'
-    tag_filename = '000001M_FBN.tag'
-    png_filename = '000001M_FBN.png'
-    gt_blinks = get_GT_blinks(tag_filename)
-    (detector, predictor, lStart, lEnd, rStart, rEnd) = vid.init_detector_predictor()
-    (vs, fileStream) = vid.start_videostream(video_filename)
-    EARs = vid.start_video(fileStream, vs, detector, predictor, lStart, lEnd, rStart, rEnd, EYE_AR_THRESH)
-    print("original ears: ")
-    for ear in EARs:
-        print(ear)
-    # EARs = scan_video(fileStream, vs, detector, predictor,lStart,lEnd, rStart, rEnd)
-    gt_pairs = bfp.get_GT_blink_pairs(gt_blinks, 0.0, 0.3)
-    thresh.compare_IOUs(EARs, gt_pairs)
-    graph.graph_EAR_GT(EARs, gt_blinks, path, png_filename)   
-    print("finished graphing")     
-    # do a bit of cleanup
-    cv2.destroyAllWindows()
-    vs.stop()
-    print("post cleanup")
-    '''
 
 if __name__ == '__main__':
     main()
