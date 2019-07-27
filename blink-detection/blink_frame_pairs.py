@@ -32,7 +32,7 @@ def get_GT_blink_pairs(GT_blink_vals, notblink, blink):
 '''
 pred_blink_vals: an array of ear vals corresponding to each frame
 '''
-def get_pred_blink_pairs(pred_blink_vals, EAR_threshold):
+def get_pred_blink_pairs(pred_blink_vals, EAR_threshold, frame_thresh):
     '''
     print("using this threshold to get predicted pairs: ", EAR_threshold)
     print("pred blink vals: ")
@@ -55,7 +55,7 @@ def get_pred_blink_pairs(pred_blink_vals, EAR_threshold):
             start_frame = frame_idx + 1 # +1 to account for 0 indexing
         elif prev <= EAR_threshold and blink_val > EAR_threshold:
             end_frame = frame_idx 
-            if end_frame-start_frame > 3:
+            if end_frame-start_frame > frame_thresh:
                 pred_blink_pairs.append([start_frame, end_frame])
             start_frame = 0
             end_frame = 0

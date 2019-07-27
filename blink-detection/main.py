@@ -84,7 +84,7 @@ def get_GT_blinks(tag_filename):
 
 def main():
     
-    read_data('zju')
+    read_data('eyeblink8')
     num_rows = df_videodata.shape[0]
 
     for i in range(num_rows):
@@ -107,14 +107,16 @@ def main():
             print(gt)
         '''
         print("pred frame count: ", len(EARs))
-        pred_pairs = bfp.get_pred_blink_pairs(EARs, EYE_AR_THRESH)
+        #pred_pairs = bfp.get_pred_blink_pairs(EARs, EYE_AR_THRESH)
         
         gt_pairs = bfp.get_GT_blink_pairs(gt_blinks, 0.0, 0.3)
-        (TP, FP, FN, precision, recall) = evalu.IOU_eval(gt_pairs, pred_pairs)
+        #(TP, FP, FN, precision, recall) = evalu.IOU_eval(gt_pairs, pred_pairs)
         
         (file_path, file) = save.check_path(path,folder)       
         save.graph_EAR_GT(EARs, gt_blinks, png_filename, file_path, file)
-        thresh.compare_IOUs(EARs, gt_blinks, gt_pairs, file_path, file)
+        for frame_thresh in range(1,6):
+            file_path = file_path + '_' + str(frame_thresh)
+            thresh.compare_IOUs(EARs, gt_blinks, gt_pairs, frame_thresh, file_path, file)
         
         # do a bit of cleanup
         cv2.destroyAllWindows()

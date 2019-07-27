@@ -21,7 +21,7 @@ from datetime import datetime
 #  the number of consecutive
 # frames the eye must be below the threshold
 
-EYE_AR_CONSEC_FRAMES = 3    
+EYE_AR_CONSEC_FRAMES = 1    
 
 
 SHAPE_PREDICTOR_FILENAME = "shape_predictor_68_face_landmarks.dat"
